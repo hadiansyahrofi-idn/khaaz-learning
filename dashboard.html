@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - KHAAZ Academy</title>
+    <link rel="icon" href="GAMBAR/favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    
+    <!-- FIXED TOPBAR -->
+    <header class="topbar">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <img src="GAMBAR/logo.png" alt="Logo" style="height: 45px;">
+            <div>
+                <h2 style="margin: 0; font-size: 18px; line-height: 1.2;">Portal Pelatihan</h2>
+                <p style="margin: 0; font-size: 12px; font-weight: bold; color: var(--logo-yellow);" id="welcomeUser">Halo, Guru Hebat!</p>
+            </div>
+        </div>
+        <div style="display: flex; gap: 15px;">
+            <button onclick="openProfile()" class="icon-btn" title="Profil Saya"><i class="fas fa-user-astronaut"></i></button>
+            <a href="index.html" onclick="localStorage.clear()" class="icon-btn" title="Keluar"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+    </header>
+
+    <!-- DASHBOARD LAYOUT (Sidebar & Main) -->
+    <div class="dashboard-wrapper">
+        
+        <!-- SIDEBAR -->
+        <aside class="glass-box" style="padding: 25px; margin: 0;">
+            
+            <!-- Gamifikasi: Emblem Pencapaian -->
+            <div class="sidebar-section">
+                <h3><i class="fas fa-medal" style="color: var(--logo-yellow);"></i> Emblem Pencapaian</h3>
+                <div class="badges-grid" id="emblemContainer">
+                    
+                    <!-- The Explorer -->
+                    <div class="badge-item">
+                        <div id="badge1" class="badge-icon" title="The Explorer: Berhasil Mendaftar ke LMS">
+                            <i class="fas fa-compass"></i>
+                        </div>
+                        <span>The Explorer</span>
+                    </div>
+                    
+                    <!-- The Builder -->
+                    <div class="badge-item">
+                        <div id="badge2" class="badge-icon" title="The Builder: Menyelesaikan Pelatihan Mastering AI">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <span>The Builder</span>
+                    </div>
+                    
+                    <!-- The Initiator -->
+                    <div class="badge-item">
+                        <div id="badge3" class="badge-icon" title="The Initiator: Berhasil Mengunggah Hasil Tugas">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <span>The Initiator</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ADAPTIF (Asisten Digital Administrasi) -->
+            <div class="sidebar-section">
+                <h2 style="font-size: 14px; line-height: 1.4;"><i class="fas fa-robot" style="color: var(--logo-yellow);"></i> ADAPTIF</h2>
+                <h3 style="font-size: 12px; font-weight: bold; margin-bottom: 5px;">Asisten Digital Administrasi Pembelajaran Terpadu dan Interaktif</h3>
+                <a href="https://gemini.google.com/gem/1X30v-yJrgYEwBslK3LEFHXpceLZ5bw0l?usp=sharing" target="_blank" class="tool-link">
+                    <i class="fas fa-chart-pie" style="color: #4285f4; font-size: 18px;"></i> CP Analyst
+                </a>
+                <a href="https://gemini.google.com/gem/1PCDjvBgsPo369udKp-w8GQ33u9-iVoeD?usp=sharing" target="_blank" class="tool-link">
+                    <i class="fas fa-file-invoice" style="color: #10a37f; font-size: 18px;"></i> RPM Generator
+                </a>
+                <a href="https://gemini.google.com/gem/1b8bahg8KwDmR0eNVFf0gd45JU_rIqZQY?usp=sharing" target="_blank" class="tool-link">
+                    <i class="fas fa-tasks" style="color: #d97757; font-size: 18px;"></i> Sumatif Maker
+                </a>
+            </div>
+
+            <!-- SIKANCIL -->
+            <div class="sidebar-section" style="margin-bottom: 0;">
+                <h3 style="font-size: 14px;"><i class="fas fa-paint-brush" style="color: #f59e0b;"></i> SIKANCIL</h3>
+                <a href="https://gemini.google.com/gem/1clqU2FoG6buSNcXKD-yJuVTq53Z_AjcG?usp=sharing" target="_blank" class="tool-link">
+                    <i class="fas fa-book-open" style="color: #f59e0b; font-size: 18px;"></i> Storybook Illustrator
+                </a>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT (Daftar Pelatihan) -->
+        <main>
+            <div class="grid-2">
+                <!-- Modul 1 -->
+                <div class="glass-box course-card-compact">
+                    <img src="GAMBAR/course1.png" alt="Mastering AI">
+                    <div class="course-content">
+                        <div style="background: var(--logo-yellow); display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; margin-bottom: 12px;"><i class="fas fa-unlock"></i> Tersedia</div>
+                        <h3>Mastering AI for Educators</h3>
+                        <p>Rekayasa Aplikasi Absensi Visual dan Asesmen Online Berbasis Generative AI.</p>
+                        
+                        <div style="display: flex; gap: 10px; margin-top: 15px;">
+                            <a href="course.html" class="glass-btn" style="padding: 10px 20px; font-size: 14px; flex: 1;"><i class="fas fa-play-circle"></i> Mulai</a>
+                            
+                            <!-- Tombol Sertifikat (Disembunyikan dengan class hidden awalnya) -->
+                            <button id="btnSertifikat" onclick="downloadSertifikat()" class="glass-btn hidden" style="padding: 10px 20px; font-size: 14px; flex: 1; background: #22c55e; color: white; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);">
+                                <i class="fas fa-certificate"></i> Unduh Sertifikat
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Modul 2 Terkunci -->
+                <div class="glass-box course-card-compact" style="opacity: 0.7; filter: grayscale(40%);">
+                    <div style="width: 100%; height: 150px; background: rgba(0,0,0,0.05); display: flex; align-items: center; justify-content: center; font-size: 35px; border-bottom: 2px solid rgba(0,0,0,0.05);"><i class="fas fa-lock"></i></div>
+                    <div class="course-content text-center">
+                        <h3>Misi Selanjutnya</h3>
+                        <p>Modul tingkat lanjut akan segera hadir. Kumpulkan emblem sebelumnya untuk membuka.</p>
+                        <button class="glass-btn glass-btn-secondary" style="padding: 10px 20px; font-size: 14px;" disabled>Belum Tersedia</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- MODAL PROFIL & EDIT (FULL VERSION) -->
+    <div id="modal-profile" class="modal">
+        <div class="glass-box modal-content" style="max-height: 90vh; overflow-y: auto;">
+            <span class="close" onclick="closeModal('modal-profile')">&times;</span>
+            
+            <!-- TAMPILAN BACA PROFIL -->
+            <div id="viewProfile">
+                <h2 style="margin-bottom: 20px;"><i class="fas fa-id-card"></i> Detail Profil Anda</h2>
+                <div class="real-id-card" style="margin-bottom: 30px;">
+                    <div class="id-data">
+                        <label>Nama Lengkap</label><h3 id="profName">-</h3>
+                        <label>Nomor WA</label><h3 id="profWa">-</h3>
+                        <label>Instansi Sekolah</label><h3 id="profSekolah">-</h3>
+                        <label>Jabatan & Jenjang</label><h3 id="profJabatan">-</h3>
+                        <label>Wilayah Tugas</label><h3 id="profWilayah" style="margin-bottom:0;">-</h3>
+                    </div>
+                </div>
+                <button onclick="toggleEdit()" class="glass-btn"><i class="fas fa-user-edit"></i> Perbarui Data</button>
+            </div>
+
+            <!-- FORMULIR UBAH DATA (Sembunyi secara default) -->
+            <div id="editProfile" class="hidden">
+                <h2 style="margin-bottom: 20px;">Perbarui Data</h2>
+                <form id="editForm">
+                    <input type="text" id="edName" class="glass-input" required>
+                    <input type="text" id="edWa" class="glass-input" required>
+                    <select id="edGender" class="glass-select" required>
+                        <option value="Laki-laki">Laki-laki</option><option value="Perempuan">Perempuan</option>
+                    </select>
+                    <select id="edJabatan" class="glass-select" required>
+                        <option value="Guru Kelas">Guru Kelas</option><option value="Guru Mapel">Guru Mapel</option><option value="Kepala Sekolah">Kepala Sekolah</option>
+                    </select>
+                    <select id="edJenjang" class="glass-select" required>
+                        <option value="PAUD/TK">PAUD/TK</option><option value="SD/MI">SD/MI</option><option value="SMP/MTs">SMP/MTs</option><option value="SMA/SMK/MA">SMA/SMK/MA</option>
+                    </select>
+                    <input type="text" id="edSekolah" class="glass-input" required>
+                    
+                    <select id="edKabupaten" class="glass-select" required onchange="toggleEditWilayah()">
+                        <option value="Kabupaten Bogor">Kabupaten Bogor</option>
+                        <option value="Luar Kabupaten Bogor">Luar Kabupaten Bogor</option>
+                    </select>
+
+                    <!-- Pilihan Kecamatan -->
+                    <div id="edAreaKabBogor">
+                        <select id="edKecamatanDropdown" class="glass-select">
+                            <option value="Babakan Madang">Babakan Madang</option><option value="Bojonggede">Bojonggede</option><option value="Caringin">Caringin</option><option value="Cariu">Cariu</option><option value="Ciampea">Ciampea</option><option value="Ciawi">Ciawi</option><option value="Cibinong">Cibinong</option><option value="Cibungbulang">Cibungbulang</option><option value="Cigombong">Cigombong</option><option value="Cigudeg">Cigudeg</option><option value="Cijeruk">Cijeruk</option><option value="Cileungsi">Cileungsi</option><option value="Ciomas">Ciomas</option><option value="Cisarua">Cisarua</option><option value="Ciseeng">Ciseeng</option><option value="Citeureup">Citeureup</option><option value="Dramaga">Dramaga</option><option value="Gunung Putri">Gunung Putri</option><option value="Gunung Sindur">Gunung Sindur</option><option value="Jasinga">Jasinga</option><option value="Jonggol">Jonggol</option><option value="Kemang">Kemang</option><option value="Klapanunggal">Klapanunggal</option><option value="Leuwiliang">Leuwiliang</option><option value="Leuwisadeng">Leuwisadeng</option><option value="Megamendung">Megamendung</option><option value="Nanggung">Nanggung</option><option value="Pamijahan">Pamijahan</option><option value="Parung">Parung</option><option value="Parung Panjang">Parung Panjang</option><option value="Ranca Bungur">Ranca Bungur</option><option value="Rumpin">Rumpin</option><option value="Sukajaya">Sukajaya</option><option value="Sukamakmur">Sukamakmur</option><option value="Sukaraja">Sukaraja</option><option value="Tajurhalang">Tajurhalang</option><option value="Tamansari">Tamansari</option><option value="Tanjungsari">Tanjungsari</option><option value="Tenjo">Tenjo</option><option value="Tenjolaya">Tenjolaya</option>
+                        </select>
+                    </div>
+                    <div id="edAreaLuarBogor" class="hidden">
+                        <input type="text" id="edKabManual" class="glass-input" placeholder="Kabupaten/Kota">
+                        <input type="text" id="edKecManual" class="glass-input" placeholder="Kecamatan">
+                    </div>
+
+                    <textarea id="edMotivasi" class="glass-input" rows="2" required></textarea>
+                    
+                    <button type="submit" class="glass-btn" id="btnSaveEdit">Simpan Perubahan</button>
+                    <button type="button" onclick="toggleEdit()" class="glass-btn glass-btn-secondary" style="margin-top: 10px;">Batal</button>
+                </form>
+            </div>
+        </div>
+    </div>
+<!-- FOOTER KOLABORASI -->
+    <footer class="footer-collab">
+        <p class="collab-title">Kolaborasi Bersama</p>
+        
+        <div class="logos">
+            <!-- Tautan ke KHAAZ Academy -->
+            <a href="https://khaaz-academy.vercel.app/" target="_blank" title="Kunjungi Web Utama KHAAZ Learning Academy">
+                <img src="GAMBAR/logo.png" alt="KHAAZ Learning Academy">
+            </a>
+            
+            <i class="fas fa-times" style="color: #cbd5e1; font-size: 12px;"></i>
+            
+            <!-- Tautan ke Instagram Kami Pengajar -->
+            <a href="https://www.instagram.com/kamipengajar/" target="_blank" title="Kunjungi Instagram Kami Pengajar">
+                <img src="GAMBAR/logokp.png" alt="Kami Pengajar">
+            </a>
+        </div>
+
+        <p class="credit">Developed by Rofi Hadiansyah &copy; 2026</p>
+    </footer>
+    <!-- SCRIPT FETCH DATA PROFIL & EMBLEM (TERPISAH) -->
+    <script>
+        const userName = localStorage.getItem('userName');
+        const userWa = localStorage.getItem('userWa');
+        
+        // URL GAS ANDA YANG SUDAH TERPASANG
+        const SCRIPT_URL_PROFIL = 'https://script.google.com/macros/s/AKfycbyMXZW_hSs8F84f2wDWBcUxKcgbecaToyT2OgJ7kd1faohHk56lbytoh764omSQPXItUQ/exec'; 
+        const SCRIPT_URL_EMBLEM = 'https://script.google.com/macros/s/AKfycbxnaGJoz1fCVm0XbBRA5PruGqcWWkQV9sQ2QOpmYrsaSd6_lyc3nlc2zKfUA00bN-ht/exec';
+        
+        let profData = null; // Menyimpan data sementara untuk form edit
+
+        if(!userName || !userWa) { window.location.href = 'index.html'; }
+        document.getElementById('welcomeUser').innerText = `Halo, ${userName.split(' ')[0]}!`;
+
+        function closeModal(id) { document.getElementById(id).style.display = "none"; }
+        function openProfile() { document.getElementById('modal-profile').style.display = "flex"; }
+
+        function toggleEditWilayah() {
+            const kab = document.getElementById('edKabupaten').value;
+            if(kab === 'Kabupaten Bogor') {
+                document.getElementById('edAreaKabBogor').classList.remove('hidden');
+                document.getElementById('edAreaLuarBogor').classList.add('hidden');
+            } else {
+                document.getElementById('edAreaKabBogor').classList.add('hidden');
+                document.getElementById('edAreaLuarBogor').classList.remove('hidden');
+            }
+        }
+
+        function toggleEdit() {
+            const view = document.getElementById('viewProfile');
+            const edit = document.getElementById('editProfile');
+            
+            if(view.classList.contains('hidden')) { 
+                view.classList.remove('hidden'); edit.classList.add('hidden'); 
+            } else {
+                view.classList.add('hidden'); edit.classList.remove('hidden');
+                if(profData) {
+                    // Isi form otomatis dengan data terbaru dari database
+                    document.getElementById('edName').value = profData.nama;
+                    document.getElementById('edWa').value = profData.wa;
+                    document.getElementById('edGender').value = profData.gender;
+                    document.getElementById('edJabatan').value = profData.jabatan;
+                    document.getElementById('edJenjang').value = profData.jenjang;
+                    document.getElementById('edSekolah').value = profData.sekolah;
+                    document.getElementById('edMotivasi').value = profData.motivasi;
+                    
+                    if(profData.kabupaten === 'Kabupaten Bogor') {
+                        document.getElementById('edKabupaten').value = 'Kabupaten Bogor';
+                        document.getElementById('edKecamatanDropdown').value = profData.kecamatan;
+                    } else {
+                        document.getElementById('edKabupaten').value = 'Luar Kabupaten Bogor';
+                        document.getElementById('edKabManual').value = profData.kabupaten;
+                        document.getElementById('edKecManual').value = profData.kecamatan;
+                    }
+                    toggleEditWilayah();
+                }
+            }
+        }
+
+        async function loadDashboardData() {
+            // 1. TARIK DATA PROFIL LENGKAP
+            try {
+                fetch(`${SCRIPT_URL_PROFIL}?action=get_profile&name=${encodeURIComponent(userName)}&wa=${encodeURIComponent(userWa)}`, { redirect: 'follow' })
+                .then(res => res.json())
+                .then(data => {
+                    if(data.status === 'success') {
+                        profData = data.data; // Simpan data global untuk dipakai di fungsi toggleEdit()
+                        
+                        // Menampilkan data ke Card Profil
+                        document.getElementById('profName').innerText = data.data.nama;
+                        document.getElementById('profWa').innerText = data.data.wa;
+                        document.getElementById('profSekolah').innerText = data.data.sekolah;
+                        document.getElementById('profJabatan').innerText = `${data.data.jabatan} - ${data.data.jenjang}`;
+                        document.getElementById('profWilayah').innerText = `${data.data.kecamatan}, ${data.data.kabupaten}`;
+                    }
+                })
+                .catch(err => console.error("Gagal menarik profil:", err));
+            } catch (error) { console.error("Error Fungsi Profil:", error); }
+
+            // 2. TARIK DATA EMBLEM DAN CEK STATUS SERTIFIKAT
+            try {
+                fetch(`${SCRIPT_URL_EMBLEM}?action=get_badges&wa=${encodeURIComponent(userWa)}`, { redirect: 'follow' })
+                .then(res => res.json())
+                .then(data => {
+                    if(data.status === 'success') {
+                        if(data.badges.b1) document.getElementById('badge1').classList.add('unlocked');
+                        
+                        if(data.badges.b2) {
+                            // Emblem The Builder (Selesai Pelatihan)
+                            document.getElementById('badge2').classList.add('unlocked');
+                            // TAMPILKAN TOMBOL SERTIFIKAT KETIKA THE BUILDER (b2) TRUE
+                            document.getElementById('btnSertifikat').classList.remove('hidden'); 
+                        }
+                        
+                        if(data.badges.b3) document.getElementById('badge3').classList.add('unlocked');
+                    }
+                })
+                .catch(err => console.error("Gagal menarik emblem:", err));
+            } catch (error) { console.error("Error Fungsi Emblem:", error); }
+        }
+
+        // FUNGSI SIMPAN PERUBAHAN KE DATABASE PROFIL
+        document.getElementById('editForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('btnSaveEdit');
+            btn.innerHTML = "<i class='fas fa-spinner fa-spin'></i> Menyimpan..."; 
+            btn.disabled = true;
+
+            let finalKab = "", finalKec = "";
+            if(document.getElementById('edKabupaten').value === 'Kabupaten Bogor') {
+                finalKab = "Kabupaten Bogor"; finalKec = document.getElementById('edKecamatanDropdown').value;
+            } else {
+                finalKab = document.getElementById('edKabManual').value; finalKec = document.getElementById('edKecManual').value;
+            }
+
+            const payload = {
+                action: 'update', oldName: userName, oldWa: userWa,
+                nama: document.getElementById('edName').value, wa: document.getElementById('edWa').value,
+                gender: document.getElementById('edGender').value, jabatan: document.getElementById('edJabatan').value,
+                jenjang: document.getElementById('edJenjang').value, sekolah: document.getElementById('edSekolah').value,
+                kabupaten: finalKab, kecamatan: finalKec, motivasi: document.getElementById('edMotivasi').value
+            };
+
+            try {
+                // Post data ke SCRIPT_URL_PROFIL (GAS Pendaftaran)
+                await fetch(SCRIPT_URL_PROFIL, { 
+                    method: 'POST', 
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' }, 
+                    body: JSON.stringify(payload) 
+                });
+                alert("Data Profil berhasil diperbarui!");
+                localStorage.setItem('userName', payload.nama); 
+                localStorage.setItem('userWa', payload.wa);
+                window.location.reload(); 
+            } catch (error) {
+                alert("Gagal menyimpan perubahan koneksi terputus.");
+                btn.innerText = "Simpan Perubahan"; btn.disabled = false;
+            }
+        });
+        
+        // FUNGSI MENCETAK DAN MENGUNDUH SERTIFIKAT (ANTI-MACET)
+        function downloadSertifikat() {
+            const btn = document.getElementById('btnSertifikat');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memproses...';
+            btn.disabled = true; // Kunci tombol saat memproses
+            
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const img = new Image();
+            
+            // Opsional: Membantu mencegah beberapa isu CORS dasar
+            img.crossOrigin = "Anonymous"; 
+            img.src = 'GAMBAR/sertifikat_template.png'; // Pastikan ejaan dan huruf besar/kecil (PNG/png) sesuai
+            
+            img.onload = function() {
+                try {
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    ctx.drawImage(img, 0, 0);
+
+                    // --- 1. SETTING TEKS UNTUK NAMA PESERTA ---
+                    ctx.font = 'bold 60px "Plus Jakarta Sans", sans-serif'; 
+                    ctx.fillStyle = '#111827'; 
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    
+                    const posisiX = canvas.width * 0.705; 
+                    const posisiYNama = canvas.height * 0.41; 
+
+                    ctx.fillText(userName, posisiX, posisiYNama);
+
+                    // --- 2. SETTING TEKS UNTUK NAMA SEKOLAH ---
+                    const namaSekolah = profData ? profData.sekolah : "Instansi Pendidikan";
+                    
+                    ctx.font = 'bold 40px "Plus Jakarta Sans", sans-serif';
+                    ctx.fillStyle = '#4b5563';
+                    
+                    const posisiYSekolah = canvas.height * 0.51; 
+                    
+                    ctx.fillText(namaSekolah, posisiX, posisiYSekolah);
+
+                    // --- PROSES UNDUH ---
+                    const link = document.createElement('a');
+                    link.download = `Sertifikat_${userName}.png`;
+                    link.href = canvas.toDataURL('image/png', 1.0);
+                    link.click();
+                    
+                    // Kembalikan tombol jika berhasil
+                    btn.innerHTML = '<i class="fas fa-certificate"></i> Unduh Sertifikat';
+                    btn.disabled = false;
+
+                } catch (error) {
+                    console.error("Canvas Error:", error);
+                    alert("Gagal mengunduh! Jika Anda membuka file secara lokal (file:///), browser akan memblokir fitur ini. Silakan gunakan ekstensi 'Live Server' di Visual Studio Code.");
+                    
+                    // Kembalikan tombol agar tidak macet
+                    btn.innerHTML = '<i class="fas fa-certificate"></i> Unduh Sertifikat';
+                    btn.disabled = false;
+                }
+            }
+            
+            img.onerror = function() {
+                alert("Gagal memuat template sertifikat. Pastikan file 'sertifikat_template.png' ada di folder GAMBAR dan namanya sama persis (perhatikan huruf besar/kecil).");
+                // Kembalikan tombol agar tidak macet
+                btn.innerHTML = '<i class="fas fa-certificate"></i> Unduh Sertifikat';
+                btn.disabled = false;
+            }
+        }
+
+        // Jalankan saat halaman dibuka
+        loadDashboardData();
+    </script>
+</body>
+</html>

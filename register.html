@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrasi - KHAAZ Academy</title>
+    <!-- Favicon -->
+    <link rel="icon" href="GAMBAR/favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" style="max-width: 850px; padding-top: 40px;">
+        <!-- BAGIAN FORM -->
+        <div class="glass-box" id="formContainer">
+            <div class="text-center" style="margin-bottom: 30px;">
+                <img src="GAMBAR/logo.png" alt="Logo KHAAZ" style="width: 150px; margin-bottom: 10px;">
+                <h2>Lengkapi Profil Anda</h2>
+                <p>Data belum terdaftar. Silakan lengkapi formulir di bawah ini.</p>
+            </div>
+            
+            <form id="registerForm">
+                <div class="grid-2">
+                    <!-- Kolom Kiri -->
+                    <div>
+                        <input type="text" id="regName" class="glass-input" placeholder="Nama Lengkap (Sesuai Gelar)" required>
+                        <select id="regGender" class="glass-select" required>
+                            <option value="" disabled selected>Jenis Kelamin</option>
+                            <option value="Laki-laki">Laki-laki</option><option value="Perempuan">Perempuan</option>
+                        </select>
+                        <select id="regJabatan" class="glass-select" required>
+                            <option value="" disabled selected>Jabatan</option>
+                            <option value="Guru Kelas">Guru Kelas</option><option value="Guru Mapel">Guru Mapel</option><option value="Kepala Sekolah">Kepala Sekolah</option>
+                        </select>
+                        <select id="regJenjang" class="glass-select" required>
+                            <option value="" disabled selected>Jenjang</option>
+                            <option value="PAUD/TK">PAUD/TK</option><option value="SD/MI">SD/MI</option><option value="SMP/MTs">SMP/MTs</option><option value="SMA/SMK/MA">SMA/SMK/MA</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Kolom Kanan -->
+                    <div>
+                        <input type="text" id="regWa" class="glass-input" placeholder="Nomor WhatsApp (Cth: 0812...)" required>
+                        <input type="text" id="regSekolah" class="glass-input" placeholder="Nama Instansi/Sekolah" required>
+                        
+                        <!-- Pilihan Kabupaten -->
+                        <select id="regKabupaten" class="glass-select" required onchange="toggleWilayah()">
+                            <option value="" disabled selected>Pilih Asal Kabupaten/Kota</option>
+                            <option value="Kabupaten Bogor">Kabupaten Bogor</option>
+                            <option value="Luar Kabupaten Bogor">Luar Kabupaten Bogor</option>
+                        </select>
+
+                        <!-- Tampil Jika Kabupaten Bogor -->
+                        <div id="areaKabBogor" class="hidden">
+                            <select id="regKecamatanDropdown" class="glass-select">
+                                <option value="" disabled selected>Pilih Kecamatan di Kab. Bogor</option>
+                                <!-- Masukkan 40 Kecamatan di sini seperti sebelumnya -->
+                                <option value="Babakan Madang">Babakan Madang</option><option value="Bojonggede">Bojonggede</option><option value="Caringin">Caringin</option><option value="Cariu">Cariu</option><option value="Ciampea">Ciampea</option><option value="Ciawi">Ciawi</option><option value="Cibinong">Cibinong</option><option value="Cibungbulang">Cibungbulang</option><option value="Cigombong">Cigombong</option><option value="Cigudeg">Cigudeg</option><option value="Cijeruk">Cijeruk</option><option value="Cileungsi">Cileungsi</option><option value="Ciomas">Ciomas</option><option value="Cisarua">Cisarua</option><option value="Ciseeng">Ciseeng</option><option value="Citeureup">Citeureup</option><option value="Dramaga">Dramaga</option><option value="Gunung Putri">Gunung Putri</option><option value="Gunung Sindur">Gunung Sindur</option><option value="Jasinga">Jasinga</option><option value="Jonggol">Jonggol</option><option value="Kemang">Kemang</option><option value="Klapanunggal">Klapanunggal</option><option value="Leuwiliang">Leuwiliang</option><option value="Leuwisadeng">Leuwisadeng</option><option value="Megamendung">Megamendung</option><option value="Nanggung">Nanggung</option><option value="Pamijahan">Pamijahan</option><option value="Parung">Parung</option><option value="Parung Panjang">Parung Panjang</option><option value="Ranca Bungur">Ranca Bungur</option><option value="Rumpin">Rumpin</option><option value="Sukajaya">Sukajaya</option><option value="Sukamakmur">Sukamakmur</option><option value="Sukaraja">Sukaraja</option><option value="Tajurhalang">Tajurhalang</option><option value="Tamansari">Tamansari</option><option value="Tanjungsari">Tanjungsari</option><option value="Tenjo">Tenjo</option><option value="Tenjolaya">Tenjolaya</option>
+                            </select>
+                        </div>
+
+                        <!-- Tampil Jika Luar Bogor -->
+                        <div id="areaLuarBogor" class="hidden">
+                            <input type="text" id="regKabManual" class="glass-input" placeholder="Tulis Nama Kabupaten/Kota Asal">
+                            <input type="text" id="regKecManual" class="glass-input" placeholder="Tulis Nama Kecamatan Asal">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Motivasi Belajar (Dibawah, Full Width, Lebih Besar) -->
+                <textarea id="regMotivasi" class="glass-input" placeholder="Ceritakan dengan singkat motivasi belajar Anda mengikuti pelatihan ini..." rows="4" required style="margin-top: 10px;"></textarea>
+                
+                <button type="submit" class="glass-btn" id="btnReg" style="margin-top: 10px;">Daftar Sekarang</button>
+            </form>
+        </div>
+
+        <!-- BAGIAN KARTU IDENTITAS -->
+        <div class="glass-box hidden" id="cardContainer" style="max-width: 600px; margin: 0 auto; text-align: center; border: none; background: transparent; box-shadow: none;">
+            <h2 style="color: #15803d; margin-bottom: 5px;">Pendaftaran Berhasil!</h2>
+            <p style="color: #ef4444; font-weight: 800; font-size: 14px; margin-bottom: 20px;">⚠️ SCREENSHOT KARTU INI SEBAGAI BUKTI REGISTRASI ⚠️</p>
+            
+            <div class="real-id-card">
+                <div class="id-header">
+                    <div>
+                        <h4 style="margin: 0; color: var(--logo-black);">KHAAZ</h4>
+                        <p style="margin: 0; font-size: 10px; color: #666; font-weight: bold;">LEARNING ACADEMY</p>
+                    </div>
+                    <div class="id-title">Official Participant<br>Digital ID Card</div>
+                </div>
+                
+                <div class="id-data">
+                    <label>Nama Peserta (Kunci Login)</label>
+                    <h3 id="cardName">-</h3>
+                    
+                    <label>Nomor WhatsApp (Kunci Login)</label>
+                    <h3 id="cardWa">-</h3>
+                    
+                    <label>Instansi / Sekolah</label>
+                    <h3 id="cardSekolah">-</h3>
+
+                    <label>Area Penugasan</label>
+                    <h3 id="cardArea" style="margin-bottom: 0;">-</h3>
+                </div>
+            </div>
+
+            <button onclick="window.location.href='dashboard.html'" class="glass-btn" style="max-width: 420px;">Lanjut ke Dashboard Utama</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('regName').value = localStorage.getItem('userName') || '';
+        document.getElementById('regWa').value = localStorage.getItem('userWa') || '';
+
+        // Script Logika Kabupaten
+        function toggleWilayah() {
+            const kab = document.getElementById('regKabupaten').value;
+            const kabArea = document.getElementById('areaKabBogor');
+            const luarArea = document.getElementById('areaLuarBogor');
+            const drp = document.getElementById('regKecamatanDropdown');
+            const manKab = document.getElementById('regKabManual');
+            const manKec = document.getElementById('regKecManual');
+
+            if(kab === 'Kabupaten Bogor') {
+                kabArea.classList.remove('hidden'); luarArea.classList.add('hidden');
+                drp.required = true; manKab.required = false; manKec.required = false;
+            } else if(kab === 'Luar Kabupaten Bogor') {
+                kabArea.classList.add('hidden'); luarArea.classList.remove('hidden');
+                drp.required = false; manKab.required = true; manKec.required = true;
+            }
+        }
+
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyMXZW_hSs8F84f2wDWBcUxKcgbecaToyT2OgJ7kd1faohHk56lbytoh764omSQPXItUQ/exec'; // GANTI INI
+
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('btnReg');
+            btn.innerText = "Menyimpan Data..."; btn.disabled = true;
+
+            // Penentuan Nilai Kabupaten & Kecamatan Final
+            let finalKab = "", finalKec = "";
+            const kabPilihan = document.getElementById('regKabupaten').value;
+            
+            if(kabPilihan === 'Kabupaten Bogor') {
+                finalKab = "Kabupaten Bogor";
+                finalKec = document.getElementById('regKecamatanDropdown').value;
+            } else {
+                finalKab = document.getElementById('regKabManual').value;
+                finalKec = document.getElementById('regKecManual').value;
+            }
+
+            const formData = {
+                nama: document.getElementById('regName').value, wa: document.getElementById('regWa').value,
+                gender: document.getElementById('regGender').value, jabatan: document.getElementById('regJabatan').value,
+                jenjang: document.getElementById('regJenjang').value, sekolah: document.getElementById('regSekolah').value,
+                kabupaten: finalKab, kecamatan: finalKec, motivasi: document.getElementById('regMotivasi').value
+            };
+
+            try {
+                await fetch(SCRIPT_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(formData) });
+                
+                // Tampilkan ID Card
+                document.getElementById('formContainer').classList.add('hidden');
+                document.getElementById('cardContainer').classList.remove('hidden');
+                
+                document.getElementById('cardName').innerText = formData.nama;
+                document.getElementById('cardWa').innerText = formData.wa;
+                document.getElementById('cardSekolah').innerText = formData.sekolah;
+                document.getElementById('cardArea').innerText = `${formData.kecamatan}, ${formData.kabupaten}`;
+                
+                localStorage.setItem('userName', formData.nama);
+                localStorage.setItem('userWa', formData.wa);
+
+            } catch (error) {
+                alert('Terkendala koneksi internet saat menyimpan data. Coba lagi.');
+                btn.innerText = "Daftar Sekarang"; btn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

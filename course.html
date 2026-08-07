@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering AI for Educators - KHAAZ Academy</title>
+    <link rel="icon" href="GAMBAR/favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    
+    <!-- FIXED TOPBAR (Sama dengan Dashboard) -->
+    <header class="topbar">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <img src="GAMBAR/logo.png" alt="Logo" style="height: 45px;">
+            <div>
+                <h2 style="margin: 0; font-size: 18px; line-height: 1.2;">Ruang Belajar</h2>
+                <p style="margin: 0; font-size: 12px; font-weight: bold; color: var(--logo-yellow);">Mastering AI for Educators</p>
+            </div>
+        </div>
+        <div style="display: flex; gap: 15px;">
+            <a href="dashboard.html" class="glass-btn glass-btn-secondary" style="padding: 10px 20px; font-size: 13px; width: auto;"><i class="fas fa-arrow-left"></i> Dashboard</a>
+        </div>
+    </header>
+
+    <div class="dashboard-wrapper">
+        
+        <!-- SIDEBAR NAVIGASI MATERI -->
+        <aside class="glass-box" style="padding: 25px; margin: 0; position: sticky; top: 100px;">
+            <h3 style="font-size: 16px; margin-bottom: 20px; border-bottom: 2px solid rgba(0,0,0,0.05); padding-bottom: 10px;">
+                <i class="fas fa-list-ul" style="color: var(--logo-yellow);"></i> Daftar Materi
+            </h3>
+            
+            <div id="nav-0" class="nav-item active" onclick="goToStep(0)"><i class="fas fa-play-circle"></i> Video Pengantar</div>
+            <div id="nav-1" class="nav-item locked" onclick="goToStep(1)"><i class="fas fa-book"></i> Modul 1: Pengantar</div>
+            <div id="nav-2" class="nav-item locked" onclick="goToStep(2)"><i class="fas fa-book"></i> Modul 2: AI dalam Pendidikan</div>
+            <div id="nav-3" class="nav-item locked" onclick="goToStep(3)"><i class="fas fa-book"></i> Modul 3: Kerangka Kerja Aplikasi</div>
+            <div id="nav-4" class="nav-item locked" onclick="goToStep(4)"><i class="fas fa-laptop-code"></i> Praktik 1: Absensi Visual</div>
+            <div id="nav-5" class="nav-item locked" onclick="goToStep(5)"><i class="fas fa-laptop-code"></i> Praktik 2: Ujian CBT</div>
+            <div id="nav-6" class="nav-item locked" onclick="goToStep(6)"><i class="fas fa-flag-checkered"></i> Tugas Akhir</div>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="glass-box" style="padding: 40px; margin: 0; min-height: 70vh;">
+            
+            <!-- SECTION 0: VIDEO PENGANTAR -->
+            <div id="step-0" class="content-section">
+                <h2 style="font-size: 24px; margin-bottom: 20px;">Video Pengantar</h2>
+                <div style="width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 16px; overflow: hidden; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                    <iframe src="https://drive.google.com/file/d/1Rb78S-DCqjBcMT74p_bgRhOZkQk8kfRN/preview" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen"></iframe>
+                </div>
+                
+                <h3 style="margin-bottom: 15px;">Membangun Ekosistem Kelas Digital</h3>
+                <p class="text-long">Selamat datang di era baru kepemimpinan pembelajaran! Saat ini, transformasi digital di ruang kelas tidak lagi sebatas menggunakan proyektor atau membagikan tugas melalui grup WhatsApp. Pendidikan Abad 21 menuntut kita untuk melangkah lebih jauh: beralih dari sekadar pengguna teknologi (End-User) menjadi pencipta ekosistem belajar (EdTech Creator).</p>
+                <p class="text-long">Selama ini, Generative AI seperti Google Gemini sering kali hanya dimanfaatkan sebatas "mesin ketik pintar" untuk menyusun Modul Ajar atau merangkum materi. Namun, bagaimana jika kita bisa membuka potensi sesungguhnya? Bagaimana jika kecerdasan buatan ini bisa bertindak sebagai Programmer pribadi yang siap mewujudkan imajinasi kelas digital Anda, kapan saja, dan di mana saja?</p>
+                <p class="text-long">Pelatihan "Mastering AI for Educators" hadir untuk mendobrak batasan tersebut. Program ini dirancang khusus bagi Anda, para pendidik visioner, untuk merancang, membangun, dan memiliki aplikasi kelas berskala profesional secara mandiri—100% TANPA perlu memiliki latar belakang ilmu komputer atau coding!</p>
+                
+                <div style="background: rgba(250, 204, 21, 0.1); border-left: 4px solid var(--logo-yellow); padding: 20px; border-radius: 0 12px 12px 0; margin: 30px 0;">
+                    <h4 style="margin-bottom: 10px;"><i class="fas fa-bullseye"></i> Goal Pelatihan:</h4>
+                    <p style="margin-bottom: 10px;"><strong>1. Web App Absensi Visual Papan Digital:</strong> Tinggalkan rutinitas memanggil nama siswa satu per satu. Anda akan menciptakan aplikasi absensi layar sentuh berdesain modern, di mana siswa dapat melakukan presensi mandiri secara interaktif di Papan Digital kelas, dan datanya langsung terekap rapi secara harian, bulanan, dan tahunan tanpa ada risiko data ganda.</p>
+                    <p style="margin-bottom: 0;"><strong>2. Aplikasi Ujian Berbasis Komputer (CBT) & Mesin Auto-Grading:</strong> Bebaskan diri Anda dari tumpukan kertas koreksi ujian. Anda akan merancang sistem CBT berstandar ANBK yang mampu menyajikan soal-soal bernalar tingkat tinggi (HOTS), lengkap dengan pengatur waktu (timer), navigasi cerdas, dan sistem penilaian otomatis yang langsung terhubung ke "brankas nilai" digital Anda.</p>
+                </div>
+                
+                <p class="text-long">Pelatihan ini didedikasikan secara 100% GRATIS sebagai wujud nyata dedikasi terhadap akselerasi digitalisasi pendidikan di Indonesia. Ini bukan sekadar pelatihan teori; ini adalah lokakarya penciptaan (builders workshop). Di akhir program ini, Anda tidak hanya membawa pulang sertifikat atau pengetahuan baru, tetapi Anda akan membawa pulang sistem aplikasi operasional yang siap mengubah wajah ruang kelas Anda keesokan harinya.</p>
+                <p class="text-long" style="font-weight: bold; color: var(--logo-black);">Mari bersiap untuk merakit masa depan. Siapkan semangat Anda, buka kolaborasi dengan kecerdasan buatan, dan mari mulai rekayasa kelas impian Anda! Selamat Belajar dan Berinovasi!</p>
+                
+                <div style="text-align: right; margin-top: 40px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
+                    <button class="glass-btn btn-next" onclick="completeStep(0)" style="width: auto;">Selesai Menonton & Lanjut Modul 1 <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- SECTION 1: MODUL 1 -->
+            <div id="step-1" class="content-section hidden">
+                <h2 style="font-size: 24px; margin-bottom: 20px;">Modul 1: Pengantar AI</h2>
+                <div style="margin: 25px 0; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                    <iframe src="https://docs.google.com/presentation/d/1PeAGXrzOpTZYr2edEdTQWzhUEZzyixFB8oQMbp6hc18/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="450" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                </div>
+                <p class="text-long">Transformasi digital di ruang kelas bukan sekadar <i>mengganti papan tulis dengan proyektor</i>, melainkan merancang ulang cara kita bekerja. Saat ini, kelas digital adalah sebuah keharusan untuk menciptakan ekosistem belajar yang lebih terorganisasi, serta membebaskan pendidik dari tumpukan beban administrasi manual.</p>
+                <p class="text-long">Di sinilah <b>Generative Artificial Intelligence (Generative AI)</b> seperti <b>Google Gemini</b> mengambil peran.</p>
+                <p class="text-long">Bagaimana sebenarnya kecerdasan buatan ini bekerja? Bayangkan fitur tebak kata (auto-complete) saat Anda mengetik pesan di ponsel, namun dalam versi yang luar biasa canggih. Mesin AI ini telah "membaca" miliaran informasi dari seluruh dunia. AI tidak benar-benar "berpikir" seperti manusia; ia bekerja dengan mengenali pola dan memprediksi kata demi kata untuk merangkai jawaban yang paling relevan dengan perintah yang kita berikan.</p>
+                <p class="text-long">Karena cara kerjanya yang sebatas memprediksi pola tersebut, <b>AI tidak akan pernah bisa menggantikan profesi guru</b>. Sentuhan kemanusiaan, empati, dan pendidikan karakter adalah hal mutlak yang tidak bisa ditiru oleh mesin mana pun.</p>
+                <p class="text-long">Sebaliknya, posisikan AI sebagai rekan kolaborasi (Co-Pilot) Anda. Biarkan AI memeras keringat untuk mengurus kerangka teknis, merakit kode aplikasi, dan menyusun draf administrasi kelas. Dengan begitu, Bapak/Ibu guru memiliki lebih banyak waktu dan energi untuk kembali pada esensi utama pendidikan: berinteraksi langsung dan membimbing siswa.</p>
+                <p class="text-long">Meskipun sangat cerdas, bekerja bersama AI tetap membutuhkan kehati-hatian (AI Safety). Karena sifatnya yang hanya menebak pola, AI bisa saja melakukan kesalahan atau <b>"berhalusinasi"</b>—yakni memberikan informasi yang salah namun dikemas dengan kalimat yang sangat meyakinkan.</p>
+                <p class="text-long">Oleh sebab itu, dalam kolaborasi ini, Andalah pemegang kendali mutlaknya. Guru bertindak sebagai "Mandor" atau Arsitek Utama. Mesin yang bekerja, tetapi kitalah yang memberi instruksi, mengevaluasi hasil kerjanya, dan memvalidasi apakah aplikasi atau materi yang dihasilkan tersebut sudah aman dan layak diterapkan di ruang kelas.</p>
+            
+                <a href="https://drive.google.com/file/d/1V6yENjyMf40ENJq6nkPw6ck7ylmbziCR/view?usp=drive_link" target="_blank" class="glass-btn glass-btn-secondary" style="width: 100%; padding: 10px 20px; font-size: 14px;"><i class="fas fa-file-pdf" style="color: #ef4444;"></i> Unduh PDF Modul 1</a>
+
+                <div style="text-align: right; margin-top: 40px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
+                    <button class="glass-btn btn-next" onclick="completeStep(1)" style="width: auto;">Selesai & Lanjut Modul 2 <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- SECTION 2: MODUL 2 -->
+            <div id="step-2" class="content-section hidden">
+                <h2 style="font-size: 24px; margin-bottom: 20px;">Modul 2: AI dalam Pendidikan</h2>
+                <div style="margin: 25px 0; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                    <iframe src="https://docs.google.com/presentation/d/1_EIC0sH76O17hEcwIP1kD_sYyWWSvqlPV8QatCGzQgI/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="450" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+                </div>
+                <p class="text-long">Untuk membuat aplikasi kelas yang canggih, kita tidak perlu menyewa peladen (server) yang mahal, membeli domain, atau mengunduh perangkat lunak yang rumit. Kita akan menyulap ekosistem yang sudah sangat akrab dengan keseharian kita—yakni Google Workspace (terutama Google Sheets dan Google Apps Script)—menjadi sebuah mesin aplikasi yang sangat bertenaga. Di tangan seorang pendidik yang visioner, Google Sheets bukan lagi sekadar tabel pasif untuk mengetik nilai manual, melainkan sebuah pangkalan data (database) yang hidup dan otomatis.</p>
+                <p class="text-long">Agar lebih mudah dibayangkan tanpa menggunakan istilah IT yang membingungkan, proses pembuatan aplikasi ini persis seperti mendirikan dan mengelola sebuah restoran modern. Restoran ini membutuhkan tiga komponen utama agar bisa melayani pelanggannya (siswa) dengan sempurna:</p>
+                <h3 style="font-size: 20px; margin-top: 20px;">1. Google Sheets sebagai Gudang Penyimpanan (Database)</h3>
+                <p class="text-long">Ini adalah ruang tertutup tempat kita menyimpan seluruh bahan baku dan catatan pembukuan secara rapi. Daftar nama siswa, nomor induk, rekapitulasi kehadiran harian, hingga skor ujian akan tersimpan dan berbaris otomatis di sini. Gudang ini bekerja di balik layar; siswa tidak perlu dan tidak boleh melihat isinya secara langsung.</p>
+                <h3 style="font-size: 20px; margin-top: 20px;">2. Google Apps Script sebagai Dapur Restoran (Backend)</h3>
+                <p class="text-long">Ini adalah ruang mesin tempat para "koki" (kode pemrograman) bekerja super cepat. Ruang mesin ini bertugas menerima pesanan dari depan. Misalnya, saat seorang siswa menekan tombol "Hadir" di layar kelas, atau mengklik "Selesai Ujian", dapur ini akan langsung menangkap data tersebut, menghitung nilainya, lalu merapikannya ke dalam gudang (Google Sheets).</p>
+                <h3 style="font-size: 20px; margin-top: 20px;">3. Antarmuka Layar (Frontend / User Interface)</h3>
+                <p class="text-long">Ini adalah ruang makan atau area depan yang dilihat, disentuh, dan dinikmati langsung oleh siswa. Bisa berupa layar Papan Interaktif di depan kelas, atau layar ponsel pintar siswa. Ruang makan ini harus dirancang seindah mungkin. Tombolnya harus jelas, warna-warninya harus menarik, dan alurnya tidak boleh membingungkan anak-anak.
+                <p class="text-long">Di sinilah letak keajaiban kolaborasi kita dengan AI. Bapak/Ibu guru tidak perlu masuk ke dapur untuk meracik kode-kode yang memusingkan itu sendirian. Kecerdasan buatan (Generative AI) inilah yang akan kita pekerjakan sebagai Master Chef-nya. Kita hanya perlu memberikan instruksi (pesanan) yang sangat rinci tentang bentuk ruang makan yang kita inginkan, serta aturan bagaimana data nilai harus dicatat di gudang. AI yang akan mengetikkan seluruh bahasa pemrograman tersebut dari nol hingga selesai.</p>
+                <p class="text-long">Lebih hebatnya lagi, sistem yang akan kita bangun ini mengusung teknologi Single Page Application (SPA). Artinya, saat siswa berpindah dari halaman "Isi Absensi" ke halaman "Lihat Rekap", layar akan berganti dalam sekejap mata tanpa ada waktu tunggu (loading) atau layar putih berkedip. Pengalaman mulus ini akan membuat aplikasi buatan Bapak/Ibu terasa sangat mahal dan profesional, setara dengan aplikasi komersial sungguhan, meskipun dibangun dengan modal kemauan dan sepenuhnya gratis!</p>
+                
+                <a href="https://drive.google.com/file/d/1Y07Bi3mcXssm6yokvxyLw3qEDZuMECzu/view?usp=drive_link" target="_blank" class="glass-btn glass-btn-secondary" style="width: 100%; padding: 10px 20px; font-size: 14px;"><i class="fas fa-file-pdf" style="color: #ef4444;"></i> Unduh PDF Modul 2</a>
+
+                <div style="text-align: right; margin-top: 40px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
+                    <button class="glass-btn btn-next" onclick="completeStep(2)" style="width: auto;">Selesai & Lanjut Modul 3 <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- SECTION 3: MODUL 3 -->
+            <div id="step-3" class="content-section hidden">
+                <h2 style="font-size: 24px; margin-bottom: 20px;">Modul 3: Kerangka Kerja Aplikasi</h2>
+                <p class="text-long">Saat ini, seorang guru tidak perlu lagi menguasai keahlian menulis kode pemrograman dari nol untuk dapat bertransformasi menjadi arsitek sistem dalam membangun aplikasi pembelajaran interaktif. Dengan bantuan kecerdasan buatan, guru cukup mengambil peran sebagai "mandor" atau pengintegrasi sistem yang memberikan instruksi pembuatan blok-blok aplikasi. Namun, agar terhindar dari risiko halusinasi AI—di mana mesin mungkin memberikan instruksi atau kode yang keliru—guru tetap wajib memiliki literasi dasar dalam membaca bahasa web, seperti mengenali kerangka HTML, tata ruang CSS, dan logika Google Apps Script. Pemahaman dasar ini berfungsi sebagai kompas agar ketika AI menyajikan deretan kode, guru mengetahui secara pasti bagian mana yang harus disalin, diubah teksnya, atau disesuaikan desainnya tanpa harus merusak struktur utama aplikasi.</p>
+                <p class="text-long">Untuk mengenal ekosistem pendukung aplikasi Anda, pelajari lebih dalam terkait persiapan ekosistem & pengenalan ruang kerja Google Apps Script pada tautan modul di bawah ini. Modul ini disajikan menggunakan Gamma App agar memberikan pengalaman membaca yang lebih interaktif. Pelajari dasar-dasar Google Ekosistem, HTML, dan Apps Script yang akan menjadi kerangka kerja aplikasi kelas Anda.</p>
+                
+                <a href="https://gamma.app/docs/Tech-Stack-Pendidik-Ekosistem-Google-HTML-dan-Apps-Script-6chjb6mxgoa1mzy?mode=doc" target="_blank" class="glass-btn" style="width: 100%; background: #6366f1; color: white;"><i class="fas fa-external-link-alt"></i> Buka Presentasi (Gamma.app)</a>
+
+                <div style="text-align: right; margin-top: 40px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
+                    <button class="glass-btn btn-next" onclick="completeStep(3)" style="width: auto;">Selesai & Lanjut Praktik 1 <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- SECTION 4: PRAKTIK 1 -->
+            <div id="step-4" class="content-section hidden">
+                <h2 style="font-size: 24px; margin-bottom: 20px;">Praktik 1: Aplikasi Absensi Visual</h2>
+                <p class="text-long">Kini saatnya beraksi! Buka panduan langkah demi langkah di bawah ini. Kemudian, <b>salin teks Prompt</b> yang telah disediakan dan tempelkan ke Google Gemini atau ChatGPT Anda untuk memerintahkan AI menuliskan kode program Absensi Visual Anda.</p>
+                
+                <a href="https://gamma.app/docs/Modul-4-Aplikasi-Absensi-Visual-Interaktif-tjk8f2vmvjtvbux?mode=doc" target="_blank" class="glass-btn glass-btn-secondary" style="width: 100%; margin-bottom: 20px;"><i class="fas fa-book-reader"></i> Buka Panduan Praktik 1</a>
+
+                <h4 style="margin-top: 20px;">Prompt Khusus Praktik 1:</h4>
+                <div class="prompt-box">
+                    <button class="copy-btn" onclick="copyPrompt('prompt1', this)"><i class="fas fa-copy"></i> Salin Prompt</button>
+                    <pre id="prompt1">Peran: Bertindaklah sebagai Senior Full-Stack Google Apps Script Developer dan Ahli UI/UX spesialis Sistem Informasi Pendidikan.
+Konteks: Saya sedang membuat Web App "Absensi Visual Kelas" (Single Page Application) untuk Papan Interaktif Digital. Saya HANYA menyiapkan 1 sheet bernama 'DataSiswa' (Kolom A: Nama Siswa, B: NISN, C: URL Foto). NISN siswa BISA SAJA KOSONG, jadi jangan jadikan NISN sebagai syarat mutlak.
+INSTRUKSI BACKEND (Code.gs - WAJIB PATUHI LOGIKA INI):
+1. Render Utama: Buat doGet(e) untuk merender Index.html dengan X-Frame-Options yang aman.
+2. Auto-Sheet Creator: Buat fungsi inisialisasi yang otomatis membuat sheet berikut (jika belum ada) beserta header persis seperti ini:
+• RekapHarian: [Tanggal, NISN, Nama, Status, Keterangan]
+• RekapBulanan: [Bulan, NISN, Nama, Sakit, Izin, Alpa] (Catatan: TIDAK ADA kolom Hadir).
+• RekapTahunan: [Tahun, NISN, Nama, Sakit, Izin, Alpa]
+3. Drive Image Converter: Ekstrak ID file dari URL Google Drive siswa di 'DataSiswa'. JANGAN gunakan [drive.google.com/uc](https://drive.google.com/uc). Ubah menjadi endpoint gambar publik: [https://lh3.googleusercontent.com/d/ID_FILE](https://lh3.googleusercontent.com/d/ID_FILE).
+4. Logika simpanAbsensi(data) - ANTI BUG & AGREGASI KHUSUS: Fungsi ini menerima array data SELURUH SISWA dari frontend. WAJIB gunakan perulangan penuh (tanpa return di tengah jalan).
+• Harian: Tambahkan baris baru untuk setiap siswa. Format Tanggal (YYYY-MM-DD).
+• Format Periode: Untuk Rekap Bulanan, ubah angka bulan menjadi NAMA BULAN BAHASA INDONESIA (contoh: "Agustus 2026"). Untuk Tahunan gunakan "YYYY".
+• Logika Agregasi (Bulanan & Tahunan): Untuk SETIAP siswa, cari apakah baris dengan Periode yang sama DAN NAMA YANG SAMA (JANGAN mencocokkan NISN) sudah ada?
+o Jika BELUM ADA: Buat baris baru untuk siswa tersebut. Jika status hari ini Sakit/Izin/Alpa, isi angka 1 di kolom yang sesuai, sisanya 0. Jika status hari ini 'Hadir', buat barisnya dengan isi 0 untuk semua (Sakit=0, Izin=0, Alpa=0).
+o Jika SUDAH ADA: Tambahkan angka +1 (increment) HANYA pada kolom yang sesuai dengan status absen hari ini. Jika statusnya 'Hadir', JANGAN tambahkan angka apa pun (hiraukan).
+5. Fungsi Tarik Data (ANTI ERROR DATA KOSONG):
+• Buat getDataSiswa(): Baca 'DataSiswa' dari BARIS KE-2 (hindari header).
+• Filter: Ambil data HANYA JIKA variabel 'nama' tidak kosong (nama !== ''). Hiraukan jika NISN kosong. Map ke format JSON: [{nama:.., nisn:.., foto:..}].
+• Buat getRekapData() untuk menarik data dari 3 sheet rekap.
+INSTRUKSI FRONTEND (Index.html - Gabungkan HTML, CSS, Vanilla JS):
+1. UI/UX Global: Desain modern, cerah, latar gradasi pastel. Font Sans-serif.
+2. Navigasi SPA: 4 tab: "Input Absensi", "Rekap Harian", "Rekap Bulanan", "Rekap Tahunan". Gunakan Vanilla JS agar berpindah halaman tanpa reload.
+3. Halaman "Input Absensi" (Papan Sentuh):
+• Grid System: CSS Grid (grid-template-columns: repeat(auto-fit, minmax(130px, 1fr))) agar kartu merapat.
+• Kartu Siswa: Foto melingkar (object-fit: cover), Nama di bawahnya.
+• Mekanik Sentuh: Saat disentuh, toggle class CSS .hadir. Kartu .hadir berubah: Border tebal HIJAU, background hijau muda, teks hijau.
+• Tombol Eksekusi: Melayang di kanan bawah: "SELESAI ABSEN ➔".
+4. Logika Modal Pop-Up (ANTI-BUG NAMA DUPLIKAT):
+• Saat "Selesai Absen" diklik, munculkan Modal Pop-Up. Pop-up HANYA memunculkan nama siswa yang kartunya TIDAK .hadir.
+• Beri dropdown (Sakit/Izin/Alpa) dan input Keterangan di tiap nama.
+• PROSES KIRIM: Saat "Simpan Data" diklik, looping seluruh kartu untuk menyusun array.
+• ATURAN MUTLAK JS: Saat mengambil teks nama/NISN di dalam perulangan, Anda DILARANG KERAS menggunakan document.querySelector. Anda WAJIB menggunakan konteks elemen yang sedang di-loop (contoh: kartu.querySelector('.nama').innerText) agar tidak terjadi bug di mana semua anak bernama sama seperti anak pertama!
+• Kirim array ke google.script.run.simpanAbsensi(arraySiswa). Tampilkan alert, tutup pop-up.
+5. Halaman Rekap (3 Tab): Buat kerangka tabel HTML sederhana. Diisi dinamis oleh getRekapData().
+ATURAN MUTLAK KODE: Tuliskan KESEpLURUHAN kode murni, jangan ada baris yang dipotong. JANGAN gunakan placeholder. Berikan output final siap pakai!
+</pre>
+                </div>
+
+                <div style="text-align: right; margin-top: 40px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
+                    <button class="glass-btn btn-next" onclick="completeStep(4)" style="width: auto;">Selesai & Lanjut Praktik 2 <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- SECTION 5: PRAKTIK 2 -->
+            <div id="step-5" class="content-section hidden">
+                <h2 style="font-size: 24px; margin-bottom: 20px;">Praktik 2: Ujian CBT & Auto-Grading</h2>
+                <p class="text-long">Misi selanjutnya adalah membuat ruang ujian CBT. Ikuti panduannya, dan <b>gunakan Prompt</b> di bawah ini untuk menginstruksikan AI membangun sistem navigasi soal, timer mundur, dan perekapan nilai otomatis (Auto-Grading).</p>
+                
+                <a href="https://gamma.app/docs/Modul-5-Membangun-Ruang-Ujian-CBT-Mesin-Auto-Grading-qrnrdav8pe3ltng?mode=doc" target="_blank" class="glass-btn glass-btn-secondary" style="width: 100%; margin-bottom: 20px;"><i class="fas fa-book-reader"></i> Buka Panduan Praktik 2</a>
+
+                <h4 style="margin-top: 20px;">Prompt Khusus Praktik 2:</h4>
+                <div class="prompt-box">
+                    <button class="copy-btn" onclick="copyPrompt('prompt2', this)"><i class="fas fa-copy"></i> Salin Prompt</button>
+                    <pre id="prompt2">Peran: Bertindaklah sebagai Senior Full-Stack Developer spesialis EdTech dan Ahli Pembuat Soal.
+Konteks: Saya ingin membuat Web App Ujian CBT mandiri di Google Apps Script yang terhubung ke Google Sheets bernama 'RekapNilai'.
+Instruksi Pembuatan Soal: Buatkan [20] butir soal pilihan ganda (A, B, C, D) untuk mata pelajaran [Pendidikan Pancasila] Kelas [5 SD] Tujuan Pembelajaran [Meneladani sikap para perumus Pancasila, Mengimplementasikan bentuk norma sebagai warga negara, dan Mengimplementasikan hak sebagai warga negara]. Tanamkan langsung daftar soal ini beserta kunci jawabannya di dalam array JavaScript pada file Index.html.
+INSTRUKSI BACKEND (Code.gs):
+1. Render Utama: Buat doGet(e) untuk merender Index.html. 
+2. Auto-Sheet Creator: Buat fungsi inisialisasi otomatis. Cek apakah sheet bernama 'RekapNilai' sudah ada. Jika BELUM, buat otomatis beserta header baris pertama: [Waktu Submit, Nama Lengkap, Kelas, Total Skor, Detail Jawaban].
+3. Fungsi Simpan: Buat simpanNilai(dataSiswa). Fungsi ini menerima objek (Nama, Kelas, Skor, Detail) dari frontend, lalu menyimpannya ke baris baru (appendRow) di sheet 'RekapNilai'. 
+INSTRUKSI FRONTEND (Index.html - Gabungkan HTML, CSS, JS):
+1. Desain Global: Antarmuka profesional, bersih, font Sans-serif.
+2. Sistem Routing (SPA): Aplikasi memiliki 3 layar yang bergantian muncul tanpa reload:
+• Layar 1 (Login): Form input Nama Lengkap dan form Dropdown Kelas berisi Kelas 1, Kelas 2, Kelas 3, Kelas 4, Kelas 5, dan Kelas 6. Tombol "Mulai Ujian". (Validasi: tidak bisa mulai jika form kosong).
+• Layar 2 (CBT): Layar utama ujian.
+• Layar 3 (Selesai): Menampilkan teks "Ujian Selesai" dan Nilai Akhir siswa. Tampilkan juga tombol untuk Kembali ke Layar 1 (Login).
+3. Tata Letak Layar 2 (CBT) - Mirip ANBK: 
+• Header Atas: Judul "Ujian [Ilmu Pengetahuan Alam Kelas 6]" dan Countdown Timer (Hitung Mundur: 60 Menit). Jika waktu habis, paksa submit (kirim) ujian. 
+• Layout Split-Screen (Desktop): Kiri (70%) untuk Area Soal, Kanan (30%) untuk Navigasi Nomor Soal. 
+• Responsivitas (Mobile): Jika dibuka di HP, navigasi nomor soal otomatis pindah ke bagian bawah area soal (Stacking).
+4. Area Soal (Kiri):
+• Tampilkan teks soal berukuran besar. 
+• 4 Opsi jawaban (A, B, C, D) berbentuk kotak radio button berdesain modern (bisa diklik di seluruh area kotaknya). 
+• Di bawah opsi, ada 3 tombol: "⬅️ Sebelumnya", "Tandai Ragu-Ragu", dan "Selanjutnya ➡️". (Di soal terakhir, tombol Selanjutnya berubah menjadi "Selesai & Kirim"). 
+5. Navigasi Nomor Soal (Kanan) & Logika Warna: 
+• Grid kotak angka sesuai jumlah soal.
+• Logika Warna Mutlak:
+o Soal sedang aktif (dibuka): Warna Biru Tegas. 
+o Sudah dijawab (yakin): Warna Hijau. 
+o Ditandai Ragu-Ragu: Warna Kuning/Oranye. 
+o Belum dijawab: Warna Putih/Abu-abu netral. 
+6. Konten Soal (Hardcoded JS):
+• Buatkan soal pilihan ganda sesuai Instruksi Pembuatan Soal. 
+• Tanamkan soal ini ke dalam variabel Array JavaScript (contoh: const dataSoal = [{soal: "...", opsi: ["A","B","C","D"], jawabanBenar: 0}]). 
+7. Logika Penilaian (Auto-Grading):
+• Saat diklik "Selesai & Kirim", munculkan pop-up konfirmasi (Apakah Anda yakin?).
+• Jika Ya, hitung nilai (Benar / Total Soal * 100) menggunakan JS. 
+• Panggil google.script.run.simpanNilai(objekData). Sembunyikan Layar 2, munculkan Layar 3.
+ATURAN MUTLAK KODE: Tulis KESELURUHAN kode murni, dari tag <html> hingga </html>, tanpa ada yang dipotong atau dikomentari placeholder. 
+</pre>
+                </div>
+
+                <div style="text-align: right; margin-top: 40px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
+                    <button class="glass-btn btn-next" onclick="completeStep(5)" style="width: auto;">Selesai & Lanjut Tugas Akhir <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- SECTION 6: TUGAS AKHIR -->
+            <div id="step-6" class="content-section hidden">
+                <h2 style="font-size: 24px; margin-bottom: 20px;"><i class="fas fa-flag-checkered"></i> Tugas Akhir & Pengumpulan</h2>
+                <h3 style="font-size: 18px; margin-top: 20px;">Selamat! Anda telah tiba di tahap akhir</h3>
+                <p class="text-long">Buktikan hasil karya lokakarya Anda dengan menyematkan <b>URL Web App publik (dari Deploy Google Apps Script Anda)</b> untuk kedua aplikasi yang telah Anda bangun. Pengumpulan tugas ini adalah syarat untuk mendapatkan Emblem "The Builder" pada profil Anda.</p>
+                
+                <form id="taskForm" style="margin-top: 30px;">
+                    <label style="font-weight: bold; font-size: 14px; margin-bottom: 8px; display: block;">1. Tautan Web App - Absensi Visual</label>
+                    <input type="url" id="urlAbsensi" class="glass-input" placeholder="https://script.google.com/macros/s/..." required>
+                    
+                    <label style="font-weight: bold; font-size: 14px; margin-bottom: 8px; display: block; margin-top: 20px;">2. Tautan Web App - Aplikasi Asesmen CBT</label>
+                    <input type="url" id="urlCbt" class="glass-input" placeholder="https://script.google.com/macros/s/..." required>
+                    
+                    <div style="text-align: right; margin-top: 40px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
+                        <button type="submit" class="glass-btn" id="btnSubmitTask" style="width: auto;"><i class="fas fa-paper-plane"></i> Kumpulkan & Selesaikan Pelatihan</button>
+                    </div>
+                </form>
+            </div>
+            
+        </main>
+    </div>
+<!-- FOOTER KOLABORASI -->
+    <footer class="footer-collab">
+        <p class="collab-title">Kolaborasi Bersama</p>
+        
+        <div class="logos">
+            <!-- Tautan ke KHAAZ Academy -->
+            <a href="https://khaaz-academy.vercel.app/" target="_blank" title="Kunjungi Web Utama KHAAZ Learning Academy">
+                <img src="GAMBAR/logo.png" alt="KHAAZ Learning Academy">
+            </a>
+            
+            <i class="fas fa-times" style="color: #cbd5e1; font-size: 12px;"></i>
+            
+            <!-- Tautan ke Instagram Kami Pengajar -->
+            <a href="https://www.instagram.com/kamipengajar/" target="_blank" title="Kunjungi Instagram Kami Pengajar">
+                <img src="GAMBAR/logokp.png" alt="Kami Pengajar">
+            </a>
+        </div>
+
+        <p class="credit">Developed by Rofi Hadiansyah &copy; 2026</p>
+    </footer>
+    <script>
+        const userName = localStorage.getItem('userName');
+        const userWa = localStorage.getItem('userWa');
+        
+        // --- MASUKKAN URL KEDUANYA DI SINI ---
+        const SCRIPT_URL_PROGRESS = 'https://script.google.com/macros/s/AKfycbz0b7CP8t7luEBR2SJLJF9wkAEC3O6s055Ejal-Y2-LQqsezPWYvWA_sh7QhGlP7WHR/exec'; 
+        const SCRIPT_URL_EMBLEM = 'https://script.google.com/macros/s/AKfycbxnaGJoz1fCVm0XbBRA5PruGqcWWkQV9sQ2QOpmYrsaSd6_lyc3nlc2zKfUA00bN-ht/exec'; // Tambahkan URL GAS Emblem di sini
+        
+        if(!userName || !userWa) { window.location.href = 'index.html'; }
+
+        let currentProgress = 0;
+
+        function copyPrompt(elementId, btn) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Tersalin!';
+                btn.style.background = '#22c55e';
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fas fa-copy"></i> Salin Prompt';
+                    btn.style.background = 'rgba(255,255,255,0.1)';
+                }, 3000);
+            });
+        }
+
+        async function loadProgress() {
+            try {
+                const url = `${SCRIPT_URL_PROGRESS}?action=get_progress&wa=${encodeURIComponent(userWa)}`;
+                const response = await fetch(url, { redirect: 'follow' });
+                const res = await response.json();
+                
+                if(res.status === 'success') {
+                    currentProgress = res.progress;
+                    updateUIBasedOnProgress();
+                }
+            } catch (error) { console.error("Gagal menarik progres"); }
+        }
+
+        function updateUIBasedOnProgress() {
+            for(let i = 0; i <= 6; i++) {
+                const navItem = document.getElementById('nav-' + i);
+                if(i <= currentProgress) {
+                    navItem.classList.remove('locked'); navItem.classList.add('unlocked');
+                    navItem.innerHTML = navItem.innerHTML.replace('fa-lock', (i===0?'fa-play-circle':(i<4?'fa-book':(i<6?'fa-laptop-code':'fa-flag-checkered'))));
+                } else {
+                    navItem.classList.remove('unlocked', 'active'); navItem.classList.add('locked');
+                    navItem.innerHTML = `<i class="fas fa-lock"></i> ` + navItem.innerText;
+                }
+            }
+            goToStep(currentProgress > 6 ? 6 : currentProgress);
+        }
+
+        function goToStep(stepNumber) {
+            if(stepNumber > currentProgress) return;
+            for(let i = 0; i <= 6; i++) {
+                document.getElementById('step-' + i).classList.add('hidden');
+                document.getElementById('nav-' + i).classList.remove('active');
+            }
+            document.getElementById('step-' + stepNumber).classList.remove('hidden');
+            document.getElementById('nav-' + stepNumber).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        async function completeStep(stepNumber) {
+            const nextStep = stepNumber + 1;
+            const btns = document.querySelectorAll('.btn-next');
+            btns[stepNumber].innerHTML = '<i class="fas fa-spinner fa-spin"></i> Menyimpan...';
+            btns[stepNumber].disabled = true;
+
+            if (nextStep > currentProgress) {
+                currentProgress = nextStep;
+                
+                // Update Progres Materi ke Database Course 1
+                try {
+                    await fetch(SCRIPT_URL_PROGRESS, { 
+                        method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, 
+                        body: JSON.stringify({ action: 'update_progress', nama: userName, wa: userWa, progress: currentProgress }) 
+                    });
+                } catch (error) { console.error(error); }
+
+                // LOGIKA GAMIFIKASI: Jika berhasil mencapai Step 6 (Tugas Akhir), aktifkan Emblem "The Builder"
+                if (currentProgress === 6) {
+                    try {
+                        await fetch(SCRIPT_URL_EMBLEM, {
+                            method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                            body: JSON.stringify({ action: 'update_badge', wa: userWa, b2: true }) // b2 adalah The Builder
+                        });
+                    } catch(e) { console.error("Gagal nyalakan emblem The Builder"); }
+                }
+            }
+            
+            btns[stepNumber].innerHTML = `Selesai & Lanjut <i class="fas fa-arrow-right"></i>`;
+            btns[stepNumber].disabled = false;
+            updateUIBasedOnProgress();
+        }
+
+        function showToast(title, message, type = 'success', redirectUrl = null) {
+            const toast = document.getElementById('customToast');
+            const toastTitle = document.getElementById('toastTitle');
+            const toastMessage = document.getElementById('toastMessage');
+            const toastIcon = document.getElementById('toastIcon');
+
+            toast.className = `custom-toast ${type}`;
+            toastTitle.innerText = title; toastMessage.innerText = message;
+            toastIcon.innerHTML = type === 'success' ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-exclamation-circle"></i>';
+
+            setTimeout(() => { toast.classList.add('show'); }, 100);
+            setTimeout(() => {
+                toast.classList.remove('show');
+                if (redirectUrl) window.location.href = redirectUrl;
+            }, 3500);
+        }
+
+        // PENGUMPULAN TUGAS (Mengaktifkan Emblem The Initiator)
+        document.getElementById('taskForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('btnSubmitTask');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim Data...';
+            btn.disabled = true;
+
+            try {
+                // 1. Simpan URL Tugas ke GAS Progres
+                await fetch(SCRIPT_URL_PROGRESS, { 
+                    method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, 
+                    body: JSON.stringify({
+                        action: 'submit_task', nama: userName, wa: userWa, progress: 7, 
+                        url_absensi: document.getElementById('urlAbsensi').value,
+                        url_cbt: document.getElementById('urlCbt').value
+                    }) 
+                });
+                
+                // 2. Aktifkan Emblem "The Initiator" di GAS Emblem
+                await fetch(SCRIPT_URL_EMBLEM, {
+                    method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify({ action: 'update_badge', wa: userWa, b3: true }) // b3 adalah The Initiator
+                });
+
+                showToast("Luar Biasa! 🎉", "Tugas akhir dikumpulkan. Anda akan dialihkan ke Dashboard untuk mengecek Emblem baru Anda.", "success", "dashboard.html");
+            } catch (error) {
+                showToast("Koneksi Gagal", "Terjadi kesalahan saat mengirim data. Silakan coba lagi.", "error");
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Kumpulkan & Selesaikan Pelatihan';
+                btn.disabled = false;
+            }
+        });
+
+        loadProgress();
+    </script>
+    <!-- TOAST NOTIFICATION ELEMENT -->
+    <div id="customToast" class="custom-toast">
+        <div id="toastIcon" class="toast-icon"><i class="fas fa-check-circle"></i></div>
+        <div class="toast-content">
+            <h4 id="toastTitle">Berhasil</h4>
+            <p id="toastMessage">Tugas berhasil dikumpulkan.</p>
+        </div>
+    </div>
+</body>
+</html>
