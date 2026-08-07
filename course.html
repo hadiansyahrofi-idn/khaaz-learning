@@ -359,7 +359,9 @@ ATURAN MUTLAK KODE: Tulis KESELURUHAN kode murni, dari tag <html> hingga </html>
                 if (currentProgress === 6) {
                     try {
                         await fetch(SCRIPT_URL_EMBLEM, {
-                            method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                            method: 'POST', 
+                            redirect: 'follow',
+                            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
                             body: JSON.stringify({ action: 'update_badge', wa: userWa, b2: true }) // b2 adalah The Builder
                         });
                     } catch(e) { console.error("Gagal nyalakan emblem The Builder"); }
@@ -408,7 +410,9 @@ ATURAN MUTLAK KODE: Tulis KESELURUHAN kode murni, dari tag <html> hingga </html>
                 
                 // 2. Aktifkan Emblem "The Initiator" di GAS Emblem
                 await fetch(SCRIPT_URL_EMBLEM, {
-                    method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    method: 'POST', 
+                    redirect: 'follow',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
                     body: JSON.stringify({ action: 'update_badge', wa: userWa, b3: true }) // b3 adalah The Initiator
                 });
 
