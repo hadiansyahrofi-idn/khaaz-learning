@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - KHAAZ Academy x Kami Pengajar</title>
+    <!-- Favicon -->
+    <link rel="icon" href="GAMBAR/favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome untuk Icon tambahan -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="flex-center" style="flex-direction: column;">
+        <div class="glass-box" style="width: 100%; max-width: 420px; text-align: center;">
+            
+            <!-- Logo & Keterangan Kolaborasi -->
+            <p style="font-size: 13px; font-weight: 700; color: #2b5b84; margin-bottom: 5px; line-height: 1.4;">
+                Kolaborasi bersama<br>
+            </p>
+            <!-- Logo Berdampingan & Keterangan Kolaborasi (RESPONSIF) -->
+            <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 15px; width: 100%;">
+                <img src="GAMBAR/logo.png" alt="Logo KHAAZ" style="height: auto; max-height: 50px; max-width: 42%; object-fit: contain;">
+                <i class="fas fa-times" style="color: #cbd5e1; font-size: 12px; flex-shrink: 0;"></i>
+                <img src="GAMBAR/logokp.png" alt="Logo Kami Pengajar" style="height: auto; max-height: 50px; max-width: 42%; object-fit: contain;">
+            </div>
+
+            <div id="loginSection">
+                <p style="font-size: 14px; margin-bottom: 30px;">Silakan masuk untuk melanjutkan pelatihan</p>
+                <form id="loginForm">
+                    <input type="text" id="loginName" class="glass-input" placeholder="Nama Lengkap" required>
+                    <input type="text" id="loginWa" class="glass-input" placeholder="Nomor WhatsApp" required>
+                    <button type="submit" class="glass-btn" id="btnLogin">Masuk ke LMS</button>
+                </form>
+                <p id="loginMessage" style="color: #ef4444; margin-top: 15px; font-size: 14px; font-weight: 700;"></p>
+            </div>
+
+            <!-- Konfirmasi Jika WA Beda -->
+            <div id="confirmSection" class="hidden alert-box">
+                <p style="font-weight: 800; color: #991b1b; margin-bottom: 5px;">Data Ditemukan dengan WA Berbeda!</p>
+                <p id="confirmText" style="color: #7f1d1d; margin-bottom: 15px;"></p>
+                <button onclick="contactAdmin()" class="glass-btn" style="padding: 10px; font-size: 14px; margin-bottom: 10px;">Hubungi Admin (WA)</button>
+                <button onclick="window.location.href='register.html'" class="glass-btn glass-btn-secondary" style="padding: 10px; font-size: 14px;">Bukan, Lanjut Registrasi</button>
+            </div>
+
+            <!-- Tautan Tombol Profil (Diperbarui menjadi 3 Tombol) -->
+            <div class="auth-links" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 30px;">
+                <button onclick="openModal('modal-academy')" class="glass-btn glass-btn-secondary" style="padding: 12px 10px; font-size: 13px; flex: 1 1 calc(50% - 10px);">
+                    <i class="fas fa-university"></i> KHAAZ Academy
+                </button>
+                
+                <!-- TOMBOL BARU KAMI PENGAJAR -->
+                <button onclick="openModal('modal-kamipengajar')" class="glass-btn glass-btn-kp" style="padding: 12px 10px; font-size: 13px; flex: 1 1 calc(50% - 10px);">
+                    <i class="fas fa-users"></i> Kami Pengajar
+                </button>
+            </div>
+        </div>
+
+        <!-- Footer / Developer Credit -->
+        <p style="margin-top: 5px; font-size: 13px; font-weight: 700; color: #6b7280; letter-spacing: 0.5px; text-align: center;">
+            Developed by <strong>Rofi Hadiansyah</strong> &copy; 2026
+        </p>
+    </div>
+
+    <!-- 1. MODAL TENTANG AKADEMI (KHAAZ) -->
+    <div id="modal-academy" class="modal">
+        <div class="glass-box modal-content" style="max-width: 850px; width: 95%; max-height: 90vh; overflow-y: auto; padding: 40px;">
+            <span class="close" onclick="closeModal('modal-academy')">&times;</span>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 40px; margin-top: 10px;">
+                <!-- Sisi Kiri: Logo dan Foto Pengelola -->
+                <div style="flex: 1; min-width: 200px; display: flex; flex-direction: column; align-items: center; gap: 20px;">
+                    <img src="GAMBAR/logo.png" alt="Logo KHAAZ" style="width: 100%; max-width: 180px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); background: rgba(255,255,255,0.5); padding: 15px;">
+                    <img src="GAMBAR/foto_rofi.png" alt="Rofi Hadiansyah" style="width: 100%; max-width: 180px; aspect-ratio: 3/4; object-fit: cover; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); border: 4px solid white;">
+                    <a href="https://khaaz-academy.vercel.app/" target="_blank" class="glass-btn" style="width: auto; padding: 12px 25px; display: inline-block;">
+                        <i class="fas fa-globe"></i> Kunjungi Web Utama
+                    </a>
+                </div>
+                
+                <!-- Sisi Kanan: Teks Profil -->
+                <div style="flex: 2; min-width: 300px; text-align: left;">
+                    <h2 style="margin-bottom: 15px; font-size: 24px;">KHAAZ Learning Academy</h2>
+                    <p style="font-size: 14px; text-align: justify; color: #4b5563; margin-bottom: 15px;">
+                        <strong>KHAAZ Learning Academy</strong> adalah sebuah inisiatif pendidikan oleh <strong>Rofi Hadiansyah</strong>, salah satu <strong>Kepala Sekolah Dasar di Kabupaten Bogor</strong> yang berfokus pada pengembangan siswa dan peningkatan kompetensi tenaga pendidik.
+                    </p>
+                    <p style="font-size: 14px; font-weight: 800; color: var(--logo-black); margin-bottom: 10px;">Akademi ini bergerak melalui tiga layanan utama:</p>
+                    <ul style="font-size: 14px; margin-left: 20px; margin-bottom: 20px; color: #4b5563; line-height: 1.7;">
+                        <li><strong>Program Bimbingan Belajar:</strong> Menyediakan layanan bimbingan dan pendampingan belajar yang dirancang khusus untuk siswa tingkat dasar dan menengah.</li>
+                        <li><strong>Penyedia Materi Pembelajaran Digital:</strong> Mengelola toko daring (online store) yang menawarkan berbagai lembar kerja digital (digital worksheets) praktis untuk mempermudah proses belajar mengajar.</li>
+                        <li><strong>Pelatihan Teknologi untuk Guru:</strong> Menyelenggarakan lokakarya (workshop) dan pelatihan teknologi yang bertujuan untuk mengedukasi dan memberdayakan para guru dalam mengintegrasikan teknologi ke dalam sistem pembelajaran modern.</li>
+                    </ul>
+                    <p style="font-size: 14px; text-align: justify; color: #4b5563; margin-bottom: 25px; background: rgba(250, 204, 21, 0.1); padding: 15px; border-left: 4px solid var(--logo-yellow); border-radius: 0 12px 12px 0;">
+                        Secara keseluruhan, KHAAZ Learning Academy hadir sebagai ekosistem pendidikan komprehensif yang tidak hanya mendukung keberhasilan akademis siswa, tetapi juga membekali para pendidik dengan keterampilan digital yang relevan.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 2. MODAL BARU: TENTANG KAMI PENGAJAR JABODETABEK -->
+    <div id="modal-kamipengajar" class="modal">
+        <div class="glass-box modal-content" style="max-width: 850px; width: 95%; max-height: 90vh; overflow-y: auto; padding: 40px;">
+            <span class="close" onclick="closeModal('modal-kamipengajar')">&times;</span>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 40px; margin-top: 10px;">
+                <!-- Sisi Kiri: Logo dan Foto Kegiatan -->
+                <div style="flex: 1; min-width: 200px; display: flex; flex-direction: column; align-items: center; gap: 20px;">
+                    <img src="GAMBAR/kamipengajar.jpg" alt="Logo Kami Pengajar" style="width: 100%; max-width: 180px; aspect-ratio: 1/1; object-fit: cover; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); background: white; border: 4px solid white;">
+                    <img src="GAMBAR/fotokp.jpg" alt="Kegiatan Kami Pengajar" style="width: 100%; max-width: 180px; aspect-ratio: 1/1; object-fit: cover; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.08); border: 4px solid white;">
+                    <a href="https://www.instagram.com/kamipengajar/" target="_blank" class="glass-btn" style="width: auto; padding: 12px 25px; display: inline-block; background: #5cb88f; color: white; border: none; box-shadow: 0 4px 15px rgba(92, 184, 143, 0.4);">
+                        <i class="fab fa-instagram"></i> Instagram Kami Pengajar
+                    </a>
+                </div>
+                
+                <!-- Sisi Kanan: Teks Komunitas -->
+                <div style="flex: 2; min-width: 300px; text-align: left;">
+                    <h2 style="margin-bottom: 15px; font-size: 24px; color: #2b5b84;">Tentang Kami Pengajar</h2>
+                    <p style="font-size: 14px; text-align: justify; color: #4b5563; margin-bottom: 15px;">
+                        <strong>Kami Pengajar</strong> adalah pergerakan komunitas pendidik akar rumput (grassroots) berskala nasional. Simpul Jabodetabek secara khusus mewadahi para guru lintas jenjang di wilayah ibu kota dan sekitarnya untuk saling berkolaborasi, berinovasi, dan memberdayakan diri di luar jam mengajar formal.
+                    </p>
+                    
+                    <p style="font-size: 14px; font-weight: 800; color: #2b5b84; margin-bottom: 10px;">Fokus Utama Komunitas:</p>
+                    <ul style="font-size: 14px; margin-left: 20px; margin-bottom: 25px; color: #4b5563; line-height: 1.7;">
+                        <li><strong>Peningkatan Kompetensi:</strong> Menyelenggarakan workshop dan pelatihan keprofesian guru secara berkala.</li>
+                        <li><strong>Akselerasi Digital:</strong> Mendorong literasi teknologi dan pemanfaatan AI untuk inovasi media pembelajaran.</li>
+                        <li><strong>Praktik Baik Pembelajaran:</strong> Menjadi wadah diskusi dan pendampingan implementasi Kurikulum Merdeka.</li>
+                        <li><strong>Jejaring Kolaborasi:</strong> Membangun ekosistem belajar yang solid antar-sekolah dan mitra strategis.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- SCRIPT LOGIKA LOGIN -->
+    <script>
+        function openModal(id) { document.getElementById(id).style.display = "flex"; }
+        function closeModal(id) { document.getElementById(id).style.display = "none"; }
+        window.onclick = function(event) { if (event.target.classList.contains('modal')) event.target.style.display = "none"; }
+
+        function contactAdmin() { window.open('https://wa.me/6285795941412', '_blank'); }
+
+        // PASTE URL GAS PENDAFTARAN LAMA ANDA DI SINI
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyMXZW_hSs8F84f2wDWBcUxKcgbecaToyT2OgJ7kd1faohHk56lbytoh764omSQPXItUQ/exec'; 
+
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('loginName').value.trim();
+            const wa = document.getElementById('loginWa').value.trim();
+            const btn = document.getElementById('btnLogin');
+            const msg = document.getElementById('loginMessage');
+            
+            if(!name || !wa) {
+                msg.innerText = "Mohon isi Nama Lengkap dan Nomor WhatsApp terlebih dahulu!";
+                return;
+            }
+
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memeriksa Database...'; 
+            btn.disabled = true; msg.innerText = "";
+            document.getElementById('confirmSection').classList.add('hidden');
+            document.getElementById('loginSection').classList.remove('hidden'); 
+
+            localStorage.setItem('userName', name);
+            localStorage.setItem('userWa', wa);
+
+            try {
+                const url = `${SCRIPT_URL}?action=login&name=${encodeURIComponent(name)}&wa=${encodeURIComponent(wa)}`;
+                const response = await fetch(url, { redirect: 'follow' });
+                
+                if(!response.ok) throw new Error("Network response was not ok");
+                const result = await response.json();
+
+                if(result.status === 'success') { 
+                    window.location.href = 'dashboard.html'; 
+                } 
+                else if (result.status === 'name_match_wa_mismatch') {
+                    document.getElementById('confirmText').innerText = `Apakah Anda "${result.name}" yang bertugas di "${result.school}"? Jika Ya, Nomor WA yang Anda input salah.`;
+                    document.getElementById('loginSection').classList.add('hidden');
+                    document.getElementById('confirmSection').classList.remove('hidden');
+                } 
+                else if (result.status === 'wa_match_name_mismatch') {
+                    msg.innerHTML = "⚠️ Nomor WA Anda terdata dengan Nama yang berbeda. Mohon ketik nama persis saat registrasi, atau <a href='javascript:void(0)' onclick='contactAdmin()' style='color:#b91c1c; text-decoration:underline;'>Hubungi Admin</a>.";
+                    btn.innerText = "Masuk ke LMS"; btn.disabled = false;
+                } 
+                else { 
+                    window.location.href = 'register.html'; 
+                }
+            } catch (error) {
+                console.error(error);
+                msg.innerText = "Gagal terhubung ke Database. Pastikan Anda memiliki koneksi internet.";
+                btn.innerText = "Masuk ke LMS"; btn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Interaktif dengan Gemini - KHAAZ Academy</title>
+    <link rel="icon" href="GAMBAR/favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .infografis-box { width: 100%; border-radius: 12px; overflow: hidden; margin: 20px 0; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .infografis-box img { width: 100%; height: auto; display: block; }
+        .code-input-group { display: flex; gap: 10px; margin-top: 20px; }
+        .code-input { flex: 1; font-family: monospace; font-size: 18px; letter-spacing: 2px; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+    
+    <header class="topbar">
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <img src="GAMBAR/logo.png" alt="Logo" style="height: 45px;">
+            <div>
+                <h2 style="margin: 0; font-size: 18px; line-height: 1.2;">Ruang Belajar</h2>
+                <p style="margin: 0; font-size: 12px; font-weight: bold; color: var(--logo-yellow);">Gemini Educator Course</p>
+            </div>
+        </div>
+        <div style="display: flex; gap: 15px;">
+            <a href="dashboard.html" class="glass-btn glass-btn-secondary" style="padding: 10px 20px; font-size: 13px; width: auto;"><i class="fas fa-arrow-left"></i> Dashboard</a>
+        </div>
+    </header>
+
+    <div class="dashboard-wrapper">
+        
+        <!-- SIDEBAR NAVIGASI -->
+        <aside class="glass-box" style="padding: 25px; margin: 0; position: sticky; top: 100px;">
+            <h3 style="font-size: 16px; margin-bottom: 20px; border-bottom: 2px solid rgba(0,0,0,0.05); padding-bottom: 10px;">
+                <i class="fas fa-stream" style="color: #4285f4;"></i> Daftar Materi
+            </h3>
+            
+            <div id="nav-0" class="nav-item active" onclick="goToStep(0)"><i class="fas fa-info-circle"></i> Modul 00: Pengantar</div>
+            <div id="nav-1" class="nav-item locked" onclick="goToStep(1)"><i class="fas fa-brain"></i> Modul 01: Perkenalan AI</div>
+            <div id="nav-2" class="nav-item locked" onclick="goToStep(2)"><i class="fas fa-shield-alt"></i> Modul 02: AI yang Aman</div>
+            <div id="nav-3" class="nav-item locked" onclick="goToStep(3)"><i class="fas fa-comment-dots"></i> Modul 03: Prompting</div>
+            <div id="nav-4" class="nav-item locked" onclick="goToStep(4)"><i class="fas fa-magic"></i> Modul 04: Transformasi</div>
+            <div id="nav-5" class="nav-item locked" onclick="goToStep(5)"><i class="fas fa-gamepad"></i> Modul 05: Game Canvas</div>
+            <div id="nav-6" class="nav-item locked" onclick="goToStep(6)"><i class="fas fa-award"></i> Modul 06: Ujian Gemini</div>
+            
+            <hr style="border:0; border-top: 1px dashed rgba(0,0,0,0.1); margin: 15px 0;">
+            <div id="nav-7" class="nav-item locked" onclick="goToStep(7)"><i class="fas fa-upload"></i> Tugas (Opsional)</div>
+            <div id="nav-8" class="nav-item locked" onclick="goToStep(8)"><i class="fas fa-certificate" style="color: #f59e0b;"></i> Klaim Sertifikat</div>
+        </aside>
+
+        <!-- KONTEN MATERI -->
+        <main class="glass-box" style="padding: 40px; margin: 0; min-height: 70vh;">
+            
+            <!-- MODUL 00 -->
+            <div id="step-0" class="content-section">
+                <h2 style="font-size: 24px; margin-bottom: 20px;">Modul 00: Pengantar dan Gambaran Umum Program</h2>
+                <p class="text-long"><strong>Selamat datang di Pelatihan Mempersiapkan Pembelajaran Inovatif Berbasis AI dengan Gemini!</strong></p>
+                <p class="text-long">Bapak/Ibu Pendidik, teknologi terus berkembang, dan ruang kelas kita pun harus ikut bertransformasi. Pelatihan ini dirancang khusus untuk membekali Anda dengan wawasan dan keterampilan praktis dalam mengintegrasikan Kecerdasan Artifisial (AI) ke dalam ekosistem belajar mengajar.</p>
+                <p class="text-long">Melalui program ini, kita tidak hanya akan mempelajari teori dasar AI, tetapi secara spesifik kita akan berfokus pada praktik pembuatan game interaktif pembelajaran menggunakan fitur Canvas di Gemini. Tujuannya adalah menciptakan pengalaman belajar yang menyenangkan, interaktif, dan relevan dengan kebutuhan siswa saat ini.</p>
+                
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">Tujuan Keseluruhan Pelatihan:</h3>
+                <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6;">
+                    <li>Membangun Literasi AI Anda dengan Gemini.</li>
+                    <li>Menggunakan Gemini (dan alat AI lainnya) dengan aman dan bertanggung jawab.</li>
+                    <li>Menjelajahi peluang dan tantangan integrasi AI untuk pendidikan.</li>
+                    <li>Mentransformasi pembelajaran dengan Gemini.</li>
+                </ul>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">Informasi Tambahan tentang Gemini untuk Pendidikan:</h3>
+                <p class="text-long" style="margin-bottom: 10px;">Sebelum kita mulai, penting untuk mengetahui bahwa Google menyediakan alat AI yang aman untuk pendidikan:</p>
+                <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6;">
+                    <li><strong>Edisi Gratis (Gemini for Education):</strong> Melindungi privasi dan keamanan data Anda, data tidak digunakan untuk melatih model, tersedia untuk pengguna semua usia (syarat layanan berlaku), dan termasuk NotebookLM.</li>
+                    <li><strong>Edisi Berbayar (Gemini in Workspace / Google AI Pro):</strong> Menawarkan perlindungan data tingkat tinggi (layanan inti, tidak ditinjau manusia, kontrol admin), ditujukan untuk pengguna 18+ (segera hadir untuk semua usia), dan mencakup fitur-fitur lanjutan.</li>
+                </ul>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">Gambaran Umum Pelatihan (Silabus):</h3>
+                <p class="text-long">Agar proses belajar berjalan terstruktur, pelatihan ini dibagi ke dalam beberapa modul utama. <em>(Anda dapat melihat rangkuman setiap modul pada tombol navigasi di samping, atau tekan tombol lanjut di bawah untuk memulai)</em>.</p>
+
+                <a href="https://docs.google.com/presentation/d/1eOEdAvoHQgi21Xysd2xkQ3JYWtVHNj3W3EN8gMbBvto/edit?usp=sharing" target="_blank" class="glass-btn glass-btn-secondary" style="width: 100%; margin: 20px 0;"><i class="fas fa-file-powerpoint" style="color: #ea4335;"></i> Unduh Materi Pengantar</a>
+                
+                <div style="background: rgba(66, 133, 244, 0.1); border-left: 4px solid #4285f4; padding: 20px; border-radius: 0 12px 12px 0; margin: 30px 0;">
+                    <h4 style="margin-bottom: 5px;"><i class="fas fa-info-circle"></i> Petunjuk Belajar:</h4>
+                    <p style="margin-bottom: 0;">Silakan pelajari setiap materi modul secara berurutan. Setelah selesai membaca laman ini, silakan klik tombol <strong>"Selanjutnya"</strong> atau tandai selesai untuk masuk ke Modul 01.</p>
+                </div>
+
+                <div style="text-align: right; margin-top: 40px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
+                    <button class="glass-btn btn-next" onclick="completeStep(0)" style="width: auto; background: #4285f4; color: white;">Lanjut Modul 01 <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- MODUL 01 -->
+            <div id="step-1" class="content-section hidden">
+                <h2 style="font-size: 24px; margin-bottom: 20px;">Modul 01: Perkenalan Kecerdasan Artifisial (AI)</h2>
+                <div class="infografis-box"><img src="GAMBAR/info1.png" alt="Infografis Modul 1"></div>
+                
+                <p class="text-long"><strong>Selamat datang di Modul 01!</strong> Setelah mendapatkan gambaran umum program, kini kita akan menyelami dasar-dasar Kecerdasan Artifisial (AI). Memahami konsep dasar ini sangat penting sebelum kita mulai menggunakan alat-alat AI di kelas.</p>
+                
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">Apa itu Kecerdasan Artifisial (AI)?</h3>
+                <p class="text-long">Kecerdasan Artifisial atau <em>Artificial Intelligence</em> (AI) adalah ilmu yang mengajarkan mesin untuk meniru perilaku cerdas manusia. Sistem AI diajarkan dan dilatih menggunakan pemrograman komputer yang memungkinkannya untuk belajar dan beradaptasi dengan informasi baru.</p>
+                
+                <p class="text-long" style="margin-bottom: 10px;">Contoh penerapan AI yang mungkin sudah sering kita temui:</p>
+                <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6;">
+                    <li><strong>Mengajarkan komputer untuk mengenali ucapan (Speech Recognition):</strong> Seperti saat kita menggunakan fitur pencarian suara di ponsel.</li>
+                    <li><strong>Mengajarkan komputer bermain Go:</strong> AI yang dilatih untuk memahami strategi dan bermain game kompleks.</li>
+                </ul>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">Memahami Jenis-jenis AI</h3>
+                <p class="text-long" style="margin-bottom: 10px;">Dalam dunia AI, terdapat beberapa cabang atau jenis teknologi utama yang perlu kita kenali:</p>
+                
+                <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6;">
+                    <li><strong>Machine Learning (ML):</strong> ML adalah sebuah sistem yang melibatkan mesin yang dilatih untuk belajar secara mandiri dari sekumpulan data. Keunggulan ML adalah sistem tersebut dapat berkembang dan mengambil keputusan tanpa harus diprogram secara eksplisit untuk setiap tugas baru yang diberikan.</li>
+                    <li><strong>Large Language Models (LLMs):</strong> LLM adalah jenis AI yang dilatih secara khusus untuk memahami, memprediksi, dan menghasilkan bahasa manusia. Model inilah yang menjadi "otak" di balik chatbot yang mampu menjawab pertanyaan dan merangkai kata-kata seperti manusia. Gemini merupakan salah satu contoh penerapan LLM.</li>
+                    <li><strong>Generative AI (Gen AI):</strong> Gen AI adalah sistem yang dilatih untuk membuat atau menghasilkan konten baru yang serupa dengan data pelatihannya. Gen AI tidak hanya bisa menghasilkan teks, tetapi juga berbagai bentuk media lainnya, seperti gambar, musik, audio, kode komputer, dan bahkan video.</li>
+                </ul>
+
+                <div style="background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; padding: 20px; border-radius: 0 12px 12px 0; margin: 30px 0;">
+                    <h4 style="margin-bottom: 5px;"><i class="fas fa-lightbulb" style="color: #10b981;"></i> Tugas Mandiri (Refleksi Singkat):</h4>
+                    <p style="margin-bottom: 0;">Setelah membaca penjelasan di atas, coba pikirkan sejenak: <strong>Alat berbasis AI apa yang paling sering Anda gunakan dalam kehidupan sehari-hari (baik disadari maupun tidak)?</strong></p>
+                </div>
+
+                <div style="text-align: right; margin-top: 40px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
+                    <button class="glass-btn btn-next" onclick="completeStep(1)" style="width: auto; background: #4285f4; color: white;">Lanjut Modul 02 <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- MODUL 02 -->
+            <div id="step-2" class="content-section hidden">
+                <h2 style="font-size: 24px; margin-bottom: 20px;">Modul 02: Menggunakan AI dengan Aman dan Bertanggung Jawab</h2>
+                <div class="infografis-box"><img src="GAMBAR/info2.png" alt="Infografis Modul 2"></div>
+
+                <p class="text-long"><strong>Selamat datang di Modul 02.</strong> Meskipun AI menawarkan potensi yang luar biasa untuk transformasi pembelajaran, kita, sebagai pendidik, harus menggunakannya secara kritis dan etis. Modul ini akan memandu Anda memahami tantangan, batasan, dan praktik terbaik dalam mengintegrasikan AI di lingkungan sekolah.</p>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">1. Memahami Bias dan Keadilan dalam AI</h3>
+                <p class="text-long">Sistem AI tidak kebal terhadap bias. AI mencerminkan bias yang ada dalam data pelatihan mereka—data yang sering kali mencerminkan bias sosial seputar ras, gender, budaya, dan banyak lagi. Sistem AI yang bias ini pada akhirnya dapat menghasilkan tanggapan yang tidak akurat, diskriminatif, atau berbeda perlakuan.</p>
+                <p class="text-long">Oleh karena itu, AI perlu terus dievaluasi agar potensi bias yang dapat berdampak negatif pada siswa dan guru dapat dicegah.</p>
+                
+                <h4 style="font-size: 16px; margin-top: 15px; margin-bottom: 10px; color: #333;">Bagaimana Pendidik Mengatasi Bias AI?</h4>
+                <p class="text-long" style="margin-bottom: 10px;">Sebagai pendidik, Anda memainkan peran kunci. Berikut cara menguranginya:</p>
+                <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6;">
+                    <li><strong>Evaluasi Berkala:</strong> Evaluasi alat AI secara berkala, karena model AI yang digunakan selalu diperbarui dan sering berubah.</li>
+                    <li><strong>Kolaborasi Tim:</strong> Libatkan anggota tim dengan latar belakang yang beragam (lintas mata pelajaran, budaya, dll) dalam mengevaluasi alat AI yang akan digunakan di sekolah.</li>
+                    <li><strong>Edukasi Kritis:</strong> Edukasi siswa agar menggunakan AI secara jujur dan bertanggung jawab. Ajari mereka untuk berpikir kritis tentang potensi bias yang mungkin dihasilkan oleh alat AI.</li>
+                </ul>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">2. Halusinasi AI dan Menjaga Akurasi</h3>
+                <p class="text-long">AI memiliki keterbatasan dan tidak selalu memberikan jawaban yang akurat. Saat Anda berinteraksi dengan chatbot AI, ingatlah bahwa mereka bisa saja memberikan informasi yang salah atau mengada-ada. Meskipun tanggapannya terdengar logis dan meyakinkan, detailnya mungkin tidak akurat. Kesalahan ini dikenal dengan istilah <strong>halusinasi</strong>.</p>
+                
+                <h4 style="font-size: 16px; margin-top: 15px; margin-bottom: 10px; color: #333;">3 Cara Umum Chatbot Menghasilkan Informasi yang Tidak Akurat:</h4>
+                <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6;">
+                    <li><strong>Fakta Buatan:</strong> Chatbot terkadang menciptakan pernyataan (mengarang fakta) yang sebenarnya tidak ada dalam data pelatihan mereka agar terlihat lebih meyakinkan.</li>
+                    <li><strong>Logika yang Salah:</strong> Alasan yang digunakan chatbot untuk menyimpulkan sebuah respon bisa saja keliru, tidak sesuai dengan premis argumennya.</li>
+                    <li><strong>Kutipan Palsu:</strong> Ketika diminta mencantumkan sumber, chatbot terkadang bisa berhalusinasi dengan menciptakan nama pengarang, publikasi, bahkan judul penelitian yang tidak pernah ada.</li>
+                </ul>
+
+                <div style="background: rgba(245, 158, 11, 0.1); border-left: 4px solid #f59e0b; padding: 20px; border-radius: 0 12px 12px 0; margin: 25px 0;">
+                    <p style="margin-bottom: 0;"><strong><i class="fas fa-exclamation-triangle" style="color: #f59e0b;"></i> Penting!</strong> Ingatlah untuk selalu waspada, periksa ketepatan, dan sesuaikan jawabannya dengan konteks pembelajaran Anda.</p>
+                </div>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">3. Evaluasi Kritis Terhadap Tanggapan AI (Kerangka AAA)</h3>
+                <p class="text-long" style="margin-bottom: 10px;">Untuk memastikan kualitas tanggapan AI, gunakan kerangka <strong>AAA (Accurate, Aligned, Appropriate)</strong> untuk memeriksa jawaban Anda:</p>
+                
+                <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6;">
+                    <li><strong>Accurate (Akurat):</strong>
+                        <ul style="margin-top: 5px; margin-bottom: 5px;">
+                            <li>Apakah tanggapan ini mengandung kesalahan faktual atau informasi yang salah?</li>
+                            <li>Bisakah Anda memverifikasi hasilnya menggunakan sumber lain yang terpercaya?</li>
+                        </ul>
+                    </li>
+                    <li><strong>Aligned (Sesuai):</strong>
+                        <ul style="margin-top: 5px; margin-bottom: 5px;">
+                            <li>Apakah tanggapan ini menjawab langsung pertanyaan (prompt) Anda?</li>
+                            <li>Apakah sesuai dengan topik dan relevan dengan tugas yang sedang dikerjakan?</li>
+                        </ul>
+                    </li>
+                    <li><strong>Appropriate (Layak):</strong>
+                        <ul style="margin-top: 5px; margin-bottom: 5px;">
+                            <li>Apakah respons ini sesuai untuk konteks pendidikan?</li>
+                            <li>Apakah ide/contoh yang diberikan sesuai dengan konteks dan usia siswa?</li>
+                        </ul>
+                    </li>
+                </ul>
+                <p class="text-long"><em><strong>Tips Tambahan:</strong> Ajukan pertanyaan lanjutan untuk mengecek konsistensi, gunakan fitur 'periksa ulang respons' (ikon G) di Gemini, dan bandingkan hasil dengan sumber ahli.</em></p>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">4. Akurasi Ekstra: Menggunakan Fitur Kutipan di Gemini</h3>
+                <p class="text-long" style="margin-bottom: 10px;">Gemini menyediakan cara untuk melacak sumber informasi:</p>
+                <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6;">
+                    <li>Anda dapat mengakses kutipan dengan mengetuk chip abu-abu untuk melihat dari mana informasi tersebut dikuatkan dari web (tautan ini biasanya muncul di akhir paragraf).</li>
+                    <li><em>(Catatan: Jika Anda menggunakan ekstensi Workspace, Gemini juga akan menampilkan tautan sebaris ke dokumen/email Anda yang relevan).</em></li>
+                </ul>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">5. Literasi Data dan Perlindungan Privasi</h3>
+                <p class="text-long" style="margin-bottom: 10px;">Literasi data adalah pertimbangan penting saat menggunakan AI. Renungkan pedoman privasi ini sebelum memasukkan data ke dalam prompt:</p>
+                <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6;">
+                    <li><strong>Apakah dianonimkan?</strong> Apakah semua informasi pribadi siswa/sekolah telah dihapus atau diganti dengan nama samaran?</li>
+                    <li><strong>Apakah diminimalkan?</strong> Apakah Anda hanya menggunakan data yang benar-benar diperlukan untuk tugas tersebut?</li>
+                    <li><strong>Bisakah direkayasa ulang?</strong> Apakah identitas seseorang masih bisa ditebak dengan mudah dari data yang sudah disamarkan?</li>
+                </ul>
+                <p class="text-long">Disarankan untuk selalu menggunakan model AI yang aman (seperti edisi Education/Enterprise) jika memproses data sensitif dan mematuhi aturan privasi sekolah.</p>
+                
+                <div style="text-align: right; margin-top: 40px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
+                    <button class="glass-btn btn-next" onclick="completeStep(2)" style="width: auto; background: #4285f4; color: white;">Lanjut Modul 03 <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- MODUL 03 -->
+            <div id="step-3" class="content-section hidden">
+                <h2 style="font-size: 24px; margin-bottom: 20px;">Modul 03: Berkenalan dengan Gemini dan Praktik Baik Prompting</h2>
+                <div class="infografis-box"><img src="GAMBAR/info3.png" alt="Infografis Modul 3"></div>
+                
+                <p class="text-long"><strong>Selamat datang di Modul 03!</strong> Setelah memahami etika dan keamanan penggunaan AI, kini saatnya kita mulai berinteraksi langsung dengan alat yang akan kita gunakan, yaitu Gemini. Pada modul ini, kita akan mempelajari cara memaksimalkan kemampuan Gemini melalui teknik penulisan perintah (prompt) yang efektif.</p>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">1. Bagaimana Gemini Dapat Membantu Proses Pembelajaran?</h3>
+                <p class="text-long" style="margin-bottom: 10px;">Gemini dapat menjadi asisten serbaguna bagi pendidik untuk mendukung berbagai aspek pembelajaran:</p>
+                <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6;">
+                    <li><strong>Memfasilitasi Riset dan Keterampilan Berpikir Kritis:</strong> Gemini dapat digunakan untuk menjelajahi berbagai sumber, meringkas materi yang panjang, dan memverifikasi keakuratan sebuah sumber informasi.</li>
+                    <li><strong>Menghasilkan Ide Beragam (Brainstorming):</strong> Sangat berguna untuk brainstorming ide pembelajaran, serta membantu penulisan akademik (seperti membuat garis besar, mengatasi kebuntuan ide/ <em>writer's block</em>, dan memperbaiki tulisan).</li>
+                    <li><strong>Memungkinkan Pembelajaran dan Penilaian yang Dipersonalisasi:</strong> Anda dapat meminta Gemini untuk menyederhanakan topik yang rumit, membuat analogi, menyusun panduan belajar untuk siswa, hingga merancang draf asesmen/soal.</li>
+                </ul>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">2. Akses Aplikasi Gemini Secara Gratis</h3>
+                <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6;">
+                    <li><strong>Tersedia dengan Workspace:</strong> Aplikasi Gemini disertakan secara gratis dengan semua edisi Google Workspace for Education dan dapat diakses melalui gemini.google.com.</li>
+                    <li><strong>Perlindungan Data Tambahan:</strong> Saat menggunakan aplikasi Gemini dengan akun sekolah Anda, data chat Anda tidak akan ditinjau oleh peninjau manusia atau digunakan untuk melatih/meningkatkan model AI generatif.</li>
+                    <li><strong>Ketersediaan:</strong> Saat ini Gemini tersedia dalam lebih dari 40 bahasa untuk pendidik dan siswa berusia 18 tahun ke atas, dan akan segera hadir untuk siswa usia remaja.</li>
+                </ul>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">3. Membuat Prompt di Gemini</h3>
+                <p class="text-long"><strong>Apa itu prompt?</strong><br>Prompt adalah instruksi atau pertanyaan yang Anda tulis untuk berinteraksi dengan chatbot. Perintah yang Anda tulis berperan sangat penting dalam membentuk respon atau hasil akhir yang diberikan oleh AI.</p>
+                
+                <div style="background: rgba(66, 133, 244, 0.1); border-left: 4px solid #4285f4; padding: 20px; border-radius: 0 12px 12px 0; margin: 20px 0;">
+                    <p style="margin-bottom: 0;"><strong><i class="fas fa-lightbulb" style="color: #4285f4;"></i> Jangan lupakan:</strong> Untuk mendapatkan hasil terbaik, buatlah prompt dengan baik dan berikan konteks yang sejelas mungkin.</p>
+                </div>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">4. Kerangka Prompt PARTS</h3>
+                <p class="text-long" style="margin-bottom: 10px;">Untuk membantu Anda menyusun prompt yang jelas dan terstruktur, gunakanlah kerangka <strong>PARTS</strong>:</p>
+                <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6;">
+                    <li><strong>P - Persona:</strong> Jelaskan peran Anda dalam tugas ini. Mengetahui persona Anda membantu AI menyesuaikan keluaran dengan peran spesifik tersebut.<br><em>Contoh: "Bertindaklah sebagai guru ahli dalam mendesain pembelajaran" atau "Anda adalah desainer pembelajaran yang sangat kreatif..."</em></li>
+                    <li><strong>A - Aim (Tujuan):</strong> Sebutkan tujuan Anda dengan jelas (apa yang ingin Anda capai). Tujuan yang jelas memberikan AI arah yang terfokus. Jelaskan tugasnya dalam bahasa yang lugas. Disarankan untuk memecah tugas besar menjadi bagian-bagian yang lebih kecil.</li>
+                    <li><strong>R - Recipients (Audiens):</strong> Tentukan target audiens Anda. Apakah Anda menulis untuk siswa, sesama pendidik, atau masyarakat umum? Mengetahui audiens membantu AI menyesuaikan nada dan kompleksitas bahasanya.</li>
+                    <li><strong>T - Theme (Tema):</strong> Jelaskan gaya, nada, dan parameter relevan yang diinginkan. Apakah Anda menginginkan gaya yang formal, santai, lucu, atau menegangkan? Menambahkan detail tema memandu AI menuju hasil yang sesuai.</li>
+                    <li><strong>S - Structure (Struktur):</strong> Tentukan format yang Anda harapkan. Apakah Anda ingin format paragraf singkat, daftar terperinci (poin-poin), atau naskah lengkap? Ini membantu AI memformat informasi sesuai kebutuhan Anda.</li>
+                </ul>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">5. Contoh Perbandingan Prompt</h3>
+                <p class="text-long" style="margin-bottom: 15px;">Perhatikan perbedaan hasil jika kita menggunakan Prompt Dasar dibandingkan dengan Prompt PARTS:</p>
+                
+                <div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px;">
+                    <div style="background: #f8717120; border: 1px solid #f87171; padding: 15px; border-radius: 8px;">
+                        <h4 style="color: #b91c1c; margin-bottom: 8px;"><i class="fas fa-times-circle"></i> Prompt Dasar</h4>
+                        <p style="margin: 0; font-style: italic;">"Buat 2 aktivitas diskusi kelas yang sangat menarik untuk proyek pengurangan sisa makanan." (Biasanya akan menghasilkan respon yang terlalu umum).</p>
+                    </div>
+                    
+                    <div style="background: #34d39920; border: 1px solid #34d399; padding: 15px; border-radius: 8px;">
+                        <h4 style="color: #047857; margin-bottom: 8px;"><i class="fas fa-check-circle"></i> Prompt PARTS</h4>
+                        <p style="margin: 0; font-style: italic;"><strong>(Persona)</strong> "Anda adalah seorang desainer pembelajaran ahli untuk siswa sekolah menengah dengan fokus pada pendidikan keberlanjutan lingkungan."<br>
+                        <strong>(Aim)</strong> "Buat catatan guru yang komprehensif untuk 2 aktivitas diskusi kelas yang sangat menarik untuk proyek kurikulum tentang pengurangan sisa makanan."<br>
+                        <strong>(Recipients)</strong> "Proyek ini akan diperuntukkan bagi kelas 8 di sekolah menengah di Jakarta, Indonesia. Para siswa sangat termotivasi dan bersemangat tentang keberlanjutan lingkungan."<br>
+                        <strong>(Theme)</strong> "Gunakan nada santai dan menarik."<br>
+                        <strong>(Structure)</strong> "Format dalam struktur yang jelas dan terorganisir. Gunakan judul, sub-judul, dan pemformatan lainnya."</p>
+                    </div>
+                </div>
+
+                <p class="text-long" style="margin-top: 20px; font-weight: bold; text-align: center;">Silakan latih kemampuan prompting Anda! Setelah selesai membaca laman ini, silakan klik tombol "Selanjutnya" atau tandai selesai untuk masuk ke Modul 04, di mana kita akan melihat 10 cara spesifik mentransformasi kelas Anda dengan Gemini.</p>
+
+                <div style="text-align: right; margin-top: 40px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
+                    <button class="glass-btn btn-next" onclick="completeStep(3)" style="width: auto; background: #4285f4; color: white;">Lanjut Modul 04 <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- MODUL 04 -->
+            <div id="step-4" class="content-section hidden">
+                <h2 style="font-size: 24px; margin-bottom: 20px;">Modul 04: 10 Cara Mentransformasi Pembelajaran dengan Gemini</h2>
+                <div class="infografis-box"><img src="GAMBAR/info4.png" alt="Infografis Modul 4"></div>
+                
+                <p class="text-long"><strong>Selamat datang di Modul 04!</strong> Mari kita jelajahi berbagai cara praktis memanfaatkan Gemini untuk mentransformasi ruang kelas dan menyederhanakan tugas administratif sehari-hari. Mulai dari merancang kurikulum hingga memvisualisasikan ide-ide kreatif, berikut adalah skenario penerapan Gemini yang bisa langsung Anda praktikkan.</p>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">1. Meringkas Bacaan dan Analisis Dokumen</h3>
+                <p class="text-long" style="margin-bottom: 10px;">Jika Anda memiliki tumpukan bacaan yang kompleks, Gemini dapat membantu Anda memahami argumen utamanya dengan cepat:</p>
+                <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6;">
+                    <li><strong>Unggah File:</strong> Klik tanda "+" di bilah prompt untuk mengunggah file PDF dan minta Gemini merangkumnya.</li>
+                    <li><strong>Ekspor Jawaban:</strong> Bagikan atau salin tanggapan Gemini langsung ke Gmail, Google Docs, atau Spreadsheet.</li>
+                    <li><strong>Dengarkan Respon (Listen):</strong> Anda dapat mendengarkan tanggapan teks dengan mengklik ikon Listen pada menu titik tiga.</li>
+                    <li><strong>Ringkasan Audio (Audio Overview):</strong> Ubah file Anda menjadi diskusi audio (fitur ini mungkin baru tersedia dalam bahasa Inggris).</li>
+                    <li><strong>Simpan Percakapan:</strong> Gunakan fitur Pin untuk menyimpan percakapan penting agar mudah diakses kembali.</li>
+                </ul>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">2. Perencanaan Kurikulum Interaktif (Gemini Canvas)</h3>
+                <p class="text-long">Gemini menyediakan fitur Canvas yang memungkinkan kolaborasi interaktif langsung di dalam ruang kerjanya. Anda dapat menyempurnakan draf kurikulum, mencari ide struktur mata pelajaran, hingga merancang tujuan pembelajaran dan strategi penilaian secara berdampingan dengan prompt Anda.</p>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">3. Koding Aplikasi Pembelajaran Lebih Mudah</h3>
+                <p class="text-long">Canvas juga dapat membantu Anda menghasilkan kode pemrograman (seperti HTML) untuk membuat alat belajar interaktif. Anda dapat meminta Gemini membuat visualisasi matematika atau kuis yang nantinya kodenya bisa langsung Anda tempel (sematkan) ke situs web atau microsite pembelajaran kelas Anda.</p>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">4. Membuat Kuis Spesifik</h3>
+                <p class="text-long">Dengan Gemini, Anda dapat membuat kuis khusus berdasarkan konten mata pelajaran apa pun untuk membantu siswa berlatih, melacak perkembangan mereka, atau bersiap menghadapi ujian terstandar.</p>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">5. Hemat Berjam-jam dengan Deep Research</h3>
+                <p class="text-long">Gunakan fitur Deep Research (Riset Mendalam) untuk menjelajahi web, menemukan jawaban, dan mensintesis temuan. Fitur ini mampu menghasilkan laporan penelitian komprehensif hingga beberapa halaman, lengkap dengan hasil analisis dari berbagai situs riset.</p>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">6. Pembuatan Gambar dan Video (Imagen 4 & Veo 3)</h3>
+                <p class="text-long" style="margin-bottom: 10px;">Wujudkan imajinasi visual Anda untuk diferensiasi media ajar:</p>
+                <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6;">
+                    <li><strong>Gambar (Imagen 4):</strong> Gunakan parameter prompt yang detail seperti gaya artistik (fotorealistik, abstrak), pencahayaan (dramatic, golden hour), perspektif (wide angle, close-up), fokus (kedalaman bidang dangkal), dan suasana untuk hasil desain visual yang memukau.</li>
+                    <li><strong>Video (Veo 3):</strong> Anda dapat menghasilkan klip video animasi atau demonstrasi visual yang menarik (Catatan: ini merupakan fitur berbayar).</li>
+                </ul>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">7. Membuat Custom AI (Gems)</h3>
+                <p class="text-long">Gems adalah versi Gemini yang dapat Anda personalisasi. Anda dapat menyimpan instruksi terperinci untuk tugas yang sering Anda ulangi, seperti membuat "Gem Pembuat Game Pelajaran", lengkap dengan file referensi materi yang diunggah.</p>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">8. Guided Learning</h3>
+                <p class="text-long">Gunakan Guided Learning untuk membantu siswa membangun pemahaman mendalam melalui pertanyaan-pertanyaan terbuka yang memancing diskusi kritis.</p>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">9. Gemini in Workspace (Edisi Berbayar)</h3>
+                <p class="text-long" style="margin-bottom: 10px;">Untuk pengguna edisi berbayar, Gemini terintegrasi langsung ke dalam ekosistem kerja Anda:</p>
+                <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6;">
+                    <li>Meringkas file di Google Drive, Docs, dan Gmail.</li>
+                    <li>Menganalisis data, membuat grafik, & rumus di Sheets.</li>
+                    <li>Membuat slides, visual, dan draf di Google Slides.</li>
+                </ul>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">10. Eksplorasi Lanjutan: NotebookLM</h3>
+                <p class="text-long" style="margin-bottom: 10px;">NotebookLM adalah asisten peneliti pribadi yang dapat mengubah sumber informasi Anda menjadi panduan belajar (Study Guide) yang dilengkapi glosarium dan FAQ.</p>
+                <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6;">
+                    <li><strong>Privasi Data:</strong> NotebookLM sangat menjaga privasi; data pribadi dan unggahan Anda tidak digunakan untuk melatih model AI.</li>
+                    <li><strong>Fitur Inovatif:</strong> Menghasilkan Ringkasan Audio bergaya podcast (Audio Overview), Ringkasan Video (Video Overview), dan Peta Pikiran (Mind Map) untuk visualisasi konsep.</li>
+                    <li><strong>Kolaborasi:</strong> Anda dapat membagikan buku catatan (Notebook) melalui tautan agar rekan kerja atau siswa dapat berinteraksi dengan materi Anda.</li>
+                </ul>
+
+                <p class="text-long" style="margin-top: 20px; font-weight: bold; text-align: center;">Silakan pelajari berbagai skenario di atas. Setelah selesai, klik tombol "Selanjutnya" atau tandai selesai untuk melangkah ke Modul 05.</p>
+
+                <div style="text-align: right; margin-top: 40px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
+                    <button class="glass-btn btn-next" onclick="completeStep(4)" style="width: auto; background: #4285f4; color: white;">Lanjut Modul 05 <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- MODUL 05 -->
+            <div id="step-5" class="content-section hidden">
+                <h2 style="font-size: 24px; margin-bottom: 20px;">Modul 05: Pembuatan Game Interaktif Pembelajaran dengan Canvas Gemini (Praktik Utama)</h2>
+                
+                <p class="text-long"><strong>Rekan-rekan pendidik yang hebat,</strong> setelah menguasai fondasi AI dan teknik prompting, kini saatnya kita bertransformasi dari sekadar pengguna menjadi kreator. Di Modul 05 ini, kita akan membuktikan bahwa teknologi dapat mengubah ruang kelas menjadi lingkungan belajar yang interaktif, bermakna, dan menggembirakan.</p>
+                <p class="text-long">Pada sesi praktik utama ini, kita akan menjadikan Gemini sebagai asisten pengembang (<em>developer</em>) pribadi untuk menciptakan game edukasi berbasis web tanpa perlu keahlian coding atau bahasa pemrograman yang rumit!</p>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">Fokus Praktik Kita:</h3>
+                <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6;">
+                    <li><strong>Mendesain Game:</strong> Menggunakan formula prompt PARTS untuk merancang mekanik permainan edukasi.</li>
+                    <li><strong>Eksekusi di Canvas:</strong> Membuat dan menguji coba (pratinjau) game secara langsung di dalam fitur Canvas Gemini.</li>
+                    <li><strong>Integrasi ke Kelas Digital:</strong> Menyematkan kode game secara penuh (<em>Full Page Embed</em>) ke dalam Google Sites agar siap diakses dan dimainkan oleh siswa.</li>
+                </ul>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">Template Prompt Cerdas Pembuat Game:</h3>
+                <p class="text-long" style="margin-bottom: 10px;">Anda dapat langsung menyalin template prompt di bawah ini dan menyesuaikan bagian di dalam tanda kurung siku <strong>[...]</strong> dengan kebutuhan kelas Anda:</p>
+                
+                <div style="background: #1e293b; color: #e2e8f0; padding: 20px; border-radius: 8px; font-family: monospace; font-size: 14px; line-height: 1.6; margin-bottom: 25px; border-left: 4px solid #3b82f6; box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);">
+                    "Bertindaklah sebagai desainer pembelajaran inovatif dan developer game edukasi. Buatlah sebuah game web interaktif (menggunakan HTML, CSS, dan JavaScript secara menyatu/inline dalam satu file) untuk siswa <strong>[Sebutkan Kelas, misal: SD Kelas 5]</strong>. Topik game ini adalah <strong>[Sebutkan Topik, misal: Jaring-jaring Makanan]</strong>.<br><br>
+                    Mekanik permainan: <strong>[Jelaskan cara mainnya, misal: Siswa harus menyusun urutan rantai makanan yang benar dengan memilih tombol organisme dari Produsen hingga Konsumen Puncak]</strong>.<br><br>
+                    Pastikan antarmuka game sangat visual, berwarna cerah, mudah dibaca, dan responsif. Tambahkan elemen gamifikasi seperti sistem skor, tombol 'Cek Jawaban', dan feedback visual (layar muncul warna hijau jika benar, merah jika salah). Tolong tuliskan kodenya secara utuh agar bisa langsung saya jalankan dan pratinjau melalui fitur Canvas di Gemini."
+                </div>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 10px;">Panduan Lengkap & Tugas:</h3>
+                <p class="text-long" style="margin-bottom: 15px;">Untuk langkah-langkah detail (langkah demi langkah) lainnya, silakan unduh atau baca dokumen PDF Modul 05 yang terlampir di bawah ini.</p>
+                
+                <a href="https://drive.google.com/file/d/1eU0CphUmVg2xIG7IH5rgtkOcrSeK_0PJ/view?usp=sharing" target="_blank" class="glass-btn glass-btn-secondary" style="width: auto; margin-bottom: 20px;"><i class="fas fa-file-pdf" style="color: #ef4444;"></i> Unduh Panduan Modul 05 (PDF)</a>
+
+                <div style="background: rgba(66, 133, 244, 0.1); border-left: 4px solid #4285f4; padding: 20px; border-radius: 0 12px 12px 0; margin: 25px 0;">
+                    <p class="text-long" style="margin-bottom: 10px;">Setelah Anda berhasil mempublikasikan (<em>deploy</em>) game Anda di Google Sites, selesaikan tugas akhir modul dengan menyalin tautan situs tersebut dan membagikannya ke <strong>Forum Diskusi Modul 05</strong> beserta prompt awal yang Anda gunakan.</p>
+                    <p class="text-long" style="margin-bottom: 0;">Mari saling menginspirasi dan mencoba karya inovatif rekan-rekan guru lainnya! Selamat berinovasi dan berkreasi!</p>
+                </div>
+
+                <div style="text-align: right; margin-top: 40px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
+                    <button class="glass-btn btn-next" onclick="completeStep(5)" style="width: auto; background: #4285f4; color: white;">Lanjut Modul 06 <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- MODUL 06 (UJIAN) -->
+            <div id="step-6" class="content-section hidden">
+                <h2 style="font-size: 24px; margin-bottom: 20px;">Modul 06: Ujian Sertifikat Gemini Edukator</h2>
+                <div class="infografis-box"><img src="GAMBAR/info6.png" alt="Infografis Modul 6"></div>
+
+                <div style="background: rgba(34, 197, 94, 0.1); border-left: 4px solid #22c55e; padding: 20px; border-radius: 0 12px 12px 0; margin-bottom: 25px;">
+                    <p class="text-long" style="margin-bottom: 10px;"><strong>Selamat!</strong> Anda telah menyelesaikan seluruh materi inti dari Pelatihan Mempersiapkan Pembelajaran Inovatif Berbasis AI dengan Gemini, termasuk membuat prototype game edukasi Anda sendiri.</p>
+                    <p class="text-long" style="margin-bottom: 0;">Sebagai langkah terakhir untuk memvalidasi keterampilan yang telah Anda pelajari dan untuk mendapatkan pengakuan resmi atas kompetensi Anda, silakan ikuti panduan Ujian Sertifikasi Gemini Certified Educator berikut ini.</p>
+                </div>
+
+                <h3 style="font-size: 18px; margin-top: 25px; margin-bottom: 15px;">Langkah-langkah Mengikuti Ujian Sertifikasi:</h3>
+                
+                <div style="margin-bottom: 20px; padding-left: 15px; border-left: 2px solid rgba(0,0,0,0.1);">
+                    <h4 style="font-size: 16px; margin-bottom: 8px;">1. Pelajari Panduan Ujian</h4>
+                    <p class="text-long" style="margin-bottom: 10px;">Sebelum memulai, sangat disarankan untuk membaca panduan ujian secara saksama agar Anda memahami format, tata tertib, dan teknis pelaksanaan ujian.</p>
+                    <a href="https://bit.ly/panduanujiangemini" target="_blank" class="glass-btn glass-btn-secondary" style="width: auto; padding: 8px 15px; font-size: 13px;"><i class="fas fa-book"></i> Buka Panduan Ujian</a>
+                </div>
+
+                <div style="margin-bottom: 20px; padding-left: 15px; border-left: 2px solid rgba(0,0,0,0.1);">
+                    <h4 style="font-size: 16px; margin-bottom: 8px;">2. Ikuti Simulasi Ujian (Opsional namun disarankan)</h4>
+                    <p class="text-long" style="margin-bottom: 10px;">Untuk membiasakan diri dengan bentuk soal dan platform ujian, Anda dapat mencoba mengerjakan simulasi ujian terlebih dahulu.</p>
+                    <a href="https://bit.ly/simulasiujianga2026" target="_blank" class="glass-btn glass-btn-secondary" style="width: auto; padding: 8px 15px; font-size: 13px;"><i class="fas fa-laptop-code"></i> Buka Simulasi Ujian</a>
+                </div>
+
+                <div style="margin-bottom: 20px; padding-left: 15px; border-left: 2px solid rgba(0,0,0,0.1);">
+                    <h4 style="font-size: 16px; margin-bottom: 8px;">3. Kerjakan Ujian Resmi</h4>
+                    <p class="text-long" style="margin-bottom: 10px;">Setelah merasa siap, silakan akses tautan ujian resmi di bawah ini. Pastikan koneksi internet Anda stabil selama proses pengerjaan.</p>
+                    <a href="https://bit.ly/ujiangemini" target="_blank" class="glass-btn glass-btn-secondary" style="width: auto; padding: 8px 15px; font-size: 13px;"><i class="fas fa-edit"></i> Buka Ujian Resmi</a>
+                </div>
+
+                <div style="background: rgba(250, 204, 21, 0.1); border-left: 4px solid var(--logo-yellow); padding: 20px; border-radius: 0 12px 12px 0; margin: 30px 0;">
+                    <h4 style="margin-bottom: 10px; font-size: 16px;"><i class="fas fa-exclamation-triangle" style="color: #f59e0b;"></i> 4. Wajib: Lapor Hasil Ujian</h4>
+                    <p class="text-long" style="margin-bottom: 10px;">Ini adalah langkah yang paling penting. Anda diwajibkan untuk melaporkan hasil ujian Anda (baik lulus maupun tidak lulus). Pelaporan ini adalah salah satu prasyarat utama untuk proses penerbitan sertifikat pelatihan Anda.</p>
+                    <p style="margin-bottom: 15px;"><strong>Batas Waktu Pelaporan:</strong> Maksimal tanggal 30 Agustus 2026.</p>
+                    <a href="https://bit.ly/laporujianga26b2" target="_blank" class="glass-btn" style="width: auto; background: #8b5cf6; color: white; border:none; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);"><i class="fas fa-external-link-alt"></i> Form Lapor Ujian</a>
+                </div>
+
+                <h3 style="font-size: 18px; margin-top: 35px; margin-bottom: 10px;">Langkah Selanjutnya: Teruslah Belajar!</h3>
+                <p class="text-long" style="margin-bottom: 15px;">Penyelesaian program ini bukanlah akhir, melainkan awal dari perjalanan literasi AI Anda. Untuk mendalami lebih jauh, Google merekomendasikan program lanjutan berikut:</p>
+                
+                <ul style="margin-bottom: 20px; padding-left: 20px; line-height: 1.6;">
+                    <li><strong>Generative AI for Educators:</strong> Mempelajari cara menghemat waktu tugas harian dan mempersonalisasi pembelajaran.</li>
+                    <li><strong>Google AI Essentials:</strong> Menemukan lebih banyak cara menggunakan alat AI generatif untuk mempercepat pekerjaan.</li>
+                    <li><strong>Google Prompting Essentials:</strong> Menguasai 5 langkah mudah menyusun prompt yang sangat efektif.</li>
+                </ul>
+
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px; margin-top: 25px;">
+                    <p class="text-long" style="margin-bottom: 10px; font-style: italic; color: #475569; text-align: justify;">"Menjadi inovator dalam pendidikan membutuhkan inisiatif berkelanjutan. Seperti ketika Anda mengembangkan sistem administrasi digital, perubahan dimulai dari satu inisiatif yang terus disempurnakan. Teruslah bereksplorasi dengan Gemini untuk menyederhanakan tugas-tugas administratif maupun menciptakan media pembelajaran yang kreatif."</p>
+                    <p class="text-long" style="font-weight: bold; text-align: center; margin-bottom: 0; color: #1e293b;">Terima kasih atas partisipasi aktif Bapak/Ibu Pendidik. Selamat mengikuti ujian, dan semoga sukses!</p>
+                </div>
+
+                <div style="text-align: right; margin-top: 40px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
+                    <button class="glass-btn btn-next" onclick="completeStep(6)" style="width: auto; background: #4285f4; color: white;">Lanjut ke Tugas Opsional <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- TUGAS (OPSIONAL) -->
+            <div id="step-7" class="content-section hidden">
+                <h2 style="font-size: 24px; margin-bottom: 20px;">Tugas Opsional: Etalase Karya</h2>
+                <p class="text-long">Tahap ini bersifat opsional dan tidak menghalangi Anda untuk mendapatkan sertifikat. Jika Anda telah berhasil merancang Game Interaktif dengan Gemini Canvas, silakan bagikan tautannya di sini untuk menginspirasi pendidik lainnya!</p>
+                
+                <form id="tugasGameForm" style="margin-top: 20px;">
+                    <input type="url" id="urlGame" class="glass-input" placeholder="Masukkan URL Game Canvas Anda (Opsional)">
+                    <button type="submit" class="glass-btn glass-btn-secondary" style="width: auto; padding: 10px 20px;"><i class="fas fa-paper-plane"></i> Kirim Karya</button>
+                </form>
+
+                <div style="text-align: right; margin-top: 40px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
+                    <button class="glass-btn btn-next" onclick="completeStep(7)" style="width: auto; background: #10b981; color: white;">Lewati / Lanjut ke Sertifikat <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- KLAIM SERTIFIKAT (Metode Pakta Integritas) -->
+            <div id="step-8" class="content-section hidden">
+                <h2 style="font-size: 24px; margin-bottom: 20px;"><i class="fas fa-award" style="color: #f59e0b;"></i> Klaim Sertifikat Pelatihan</h2>
+                <p class="text-long">Karena tautan pelaporan dikelola oleh sistem pusat, kami menerapkan sistem verifikasi berbasis <strong>Pakta Integritas</strong> untuk memastikan validitas pelatihan Anda.</p>
+                
+                <div style="background: #1e293b; padding: 25px; border-radius: 12px; margin-top: 20px; box-shadow: inset 0 2px 10px rgba(0,0,0,0.5);">
+                    
+                    <label style="color: white; font-weight: bold; margin-bottom: 10px; display: block;">1. Email yang Anda gunakan saat lapor ujian:</label>
+                    <input type="email" id="emailLapor" class="glass-input" placeholder="contoh@gmail.com" style="margin-bottom: 20px; background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2);">
+
+                    <label style="color: #cbd5e1; font-size: 14px; display: flex; align-items: flex-start; gap: 12px; cursor: pointer; margin-bottom: 25px; background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px;">
+                        <input type="checkbox" id="cekIntegritas" style="margin-top: 4px; transform: scale(1.3); cursor: pointer;">
+                        <span style="line-height: 1.5; text-align: justify;">
+                            <strong>Pakta Integritas:</strong> Dengan ini saya menyatakan secara sadar dan sejujur-jujurnya bahwa saya telah membuka tautan dan <strong>menyelesaikan pengisian Formulir Laporan Ujian Gemini</strong>. Saya bertanggung jawab penuh atas kebenaran pernyataan ini.
+                        </span>
+                    </label>
+
+                    <button onclick="verifikasiIntegritas()" id="btnVerifikasi" class="glass-btn" style="width: auto; background: #22c55e; color: white; opacity: 0.5; transition: all 0.3s ease;" disabled>
+                        <i class="fas fa-lock"></i> Kunci Terbuka Setelah Dicentang
+                    </button>
+                    
+                    <p id="pesanError" style="color: #ef4444; font-size: 13px; font-weight: bold; margin-top: 15px; display: none;"><i class="fas fa-exclamation-triangle"></i> Mohon ketik email Anda dan centang pakta integritas di atas.</p>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="customToast" class="custom-toast">
+        <div id="toastIcon" class="toast-icon"><i class="fas fa-check-circle"></i></div>
+        <div class="toast-content">
+            <h4 id="toastTitle">Berhasil</h4>
+            <p id="toastMessage">Sertifikat diproses.</p>
+        </div>
+    </div>
+
+    <!-- FOOTER MINIMALIS -->
+    <footer class="footer-collab">
+        <div class="logos">
+            <a href="https://khaaz-academy.vercel.app/" target="_blank" title="Kunjungi Web Utama KHAAZ Learning Academy">
+                <img src="GAMBAR/logo.png" alt="KHAAZ Learning Academy" style="height: 40px;">
+            </a>
+        </div>
+        <p class="credit" style="margin-top: 5px;">Developed by Rofi Hadiansyah &copy; 2026</p>
+    </footer>
+
+    <script>
+        const userName = localStorage.getItem('userName');
+        const userWa = localStorage.getItem('userWa');
+        // PASTIKAN URL GAS COURSE 2 ANDA SUDAH BENAR
+        const SCRIPT_URL_COURSE2 = 'https://script.google.com/macros/s/AKfycbwDq8CAwVlad7aSlT79N68vzfktvzE5i3i7_w8bf8BLB8nzbrCK3DhUHS0x0iLPukrn/exec'; 
+        
+        if(!userName || !userWa) { window.location.href = 'index.html'; }
+
+        // MENGGUNAKAN LOCAL STORAGE UNTUK PROGRES MANDIRI COURSE 2 (Cepat & Ringan)
+        let currentProgress = parseInt(localStorage.getItem('progressCourse2')) || 0;
+        
+        function updateUIBasedOnProgress() {
+            for(let i = 0; i <= 8; i++) {
+                const navItem = document.getElementById('nav-' + i);
+                if(i <= currentProgress) {
+                    navItem.classList.remove('locked'); navItem.classList.add('unlocked');
+                    let iconClass = ['fa-info-circle', 'fa-brain', 'fa-shield-alt', 'fa-comment-dots', 'fa-magic', 'fa-gamepad', 'fa-award', 'fa-upload', 'fa-certificate'][i];
+                    navItem.innerHTML = `<i class="fas ${iconClass}" ${i===8?'style="color:#f59e0b;"':''}></i> ` + navItem.innerText.replace('...', '');
+                } else {
+                    navItem.classList.remove('unlocked', 'active'); navItem.classList.add('locked');
+                    navItem.innerHTML = `<i class="fas fa-lock"></i> ` + navItem.innerText;
+                }
+            }
+            goToStep(currentProgress > 8 ? 8 : currentProgress);
+        }
+
+        function goToStep(stepNumber) {
+            if(stepNumber > currentProgress) return;
+            for(let i = 0; i <= 8; i++) {
+                document.getElementById('step-' + i).classList.add('hidden');
+                document.getElementById('nav-' + i).classList.remove('active');
+            }
+            document.getElementById('step-' + stepNumber).classList.remove('hidden');
+            document.getElementById('nav-' + stepNumber).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        async function completeStep(stepNumber) {
+            const nextStep = stepNumber + 1;
+            if (nextStep > currentProgress) {
+                currentProgress = nextStep;
+                localStorage.setItem('progressCourse2', currentProgress);
+                
+                // Rekam progres angka ke database
+                try {
+                    fetch(SCRIPT_URL_COURSE2, {
+                        method: 'POST', redirect: 'follow',
+                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                        body: JSON.stringify({ action: 'update_progress', wa: userWa, name: userName, step: currentProgress })
+                    });
+                } catch(e) {}
+            }
+            updateUIBasedOnProgress();
+        }
+
+        // --- TUGAS OPSIONAL (Kirim Data & Nyalakan Emblem The Creator) ---
+        document.getElementById('tugasGameForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const url = document.getElementById('urlGame').value;
+            const btn = e.target.querySelector('button');
+            
+            if(url) {
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Mengirim...';
+                
+                // 1. Catat ke Progress
+                await fetch(SCRIPT_URL_COURSE2, {
+                    method: 'POST', redirect: 'follow',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify({ action: 'update_progress', wa: userWa, name: userName, step: 'Tugas', url: url })
+                });
+                
+                // 2. Nyalakan Emblem The Creator (b2)
+                await fetch(SCRIPT_URL_COURSE2, {
+                    method: 'POST', redirect: 'follow',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify({ action: 'update_badge', wa: userWa, b2: true })
+                });
+
+                showToast("Luar Biasa!", "Karya berhasil dikirimkan.", "success");
+                btn.innerHTML = '<i class="fas fa-check"></i> Terkirim';
+                setTimeout(() => { completeStep(7); }, 1500);
+            }
+        });
+
+        // --- LOGIKA PAKTA INTEGRITAS ---
+        // Membuka gembok tombol hanya jika kotak dicentang
+        document.getElementById('cekIntegritas').addEventListener('change', function() {
+            const btn = document.getElementById('btnVerifikasi');
+            if(this.checked) {
+                btn.style.opacity = '1';
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-check-circle"></i> Unduh Sertifikat Sekarang';
+                btn.style.boxShadow = '0 4px 15px rgba(34, 197, 94, 0.4)';
+            } else {
+                btn.style.opacity = '0.5';
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fas fa-lock"></i> Kunci Terbuka Setelah Dicentang';
+                btn.style.boxShadow = 'none';
+            }
+        });
+
+        // --- FUNGSI VERIFIKASI & CETAK SERTIFIKAT ---
+        function verifikasiIntegritas() {
+            const email = document.getElementById('emailLapor').value.trim();
+            const checkbox = document.getElementById('cekIntegritas').checked;
+            const pesanError = document.getElementById('pesanError');
+            const btn = document.getElementById('btnVerifikasi');
+
+            // Syarat: Email tidak boleh kosong dan wajib dicentang
+            if(email !== "" && checkbox) {
+                pesanError.style.display = 'none';
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memproses Sertifikat...';
+                btn.disabled = true;
+                
+                // Nyalakan Emblem The Certified (b3) di Database
+                fetch(SCRIPT_URL_COURSE2, {
+                    method: 'POST', redirect: 'follow',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify({ action: 'update_badge', wa: userWa, b3: true })
+                }).catch(e => console.error(e));
+                
+                // Panggil fungsi cetak
+                cetakSertifikatGemini(btn);
+            } else {
+                pesanError.style.display = 'block';
+            }
+        }
+
+        function cetakSertifikatGemini(btn) {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const img = new Image();
+            
+            // PASTIKAN ANDA PUNYA TEMPLATE SERTIFIKAT BARU KHUSUS PELATIHAN INI
+            img.crossOrigin = "Anonymous";
+            img.src = 'GAMBAR/sertifikat_gemini.jpg'; 
+            
+            img.onload = function() {
+                try {
+                    canvas.width = img.width; canvas.height = img.height;
+                    ctx.drawImage(img, 0, 0);
+
+                    ctx.font = 'bold 60px "Plus Jakarta Sans", sans-serif'; 
+                    ctx.fillStyle = '#111827'; 
+                    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+                    
+                    // Sesuaikan X dan Y dengan tata letak template sertifikat Gemini Anda
+                    const posisiX = canvas.width / 2; 
+                    const posisiYNama = canvas.height * 0.45; 
+
+                    ctx.fillText(userName, posisiX, posisiYNama);
+
+                    const link = document.createElement('a');
+                    link.download = `Sertifikat_Gemini_${userName}.png`;
+                    link.href = canvas.toDataURL('image/png', 1.0);
+                    link.click();
+                    
+                    btn.innerHTML = '<i class="fas fa-check-circle"></i> Berhasil Diunduh';
+                    setTimeout(() => {
+                        btn.disabled = false;
+                        btn.innerHTML = '<i class="fas fa-check-circle"></i> Verifikasi & Unduh';
+                        showToast("Selamat!", "Sertifikat berhasil diunduh.", "success");
+                    }, 2000);
+
+                } catch (error) {
+                    alert("Gagal memproses sertifikat. Pastikan dijalankan via Live Server.");
+                    btn.innerHTML = '<i class="fas fa-check-circle"></i> Verifikasi & Unduh';
+                    btn.disabled = false;
+                }
+            }
+            img.onerror = function() {
+                alert("Template sertifikat tidak ditemukan! Pastikan file 'sertifikat_gemini.jpg' ada di folder GAMBAR.");
+                btn.innerHTML = '<i class="fas fa-check-circle"></i> Verifikasi & Unduh';
+                btn.disabled = false;
+            }
+        }
+
+        function showToast(title, message, type = 'success') {
+            const toast = document.getElementById('customToast');
+            document.getElementById('toastTitle').innerText = title; 
+            document.getElementById('toastMessage').innerText = message;
+            document.getElementById('toastIcon').innerHTML = type === 'success' ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-exclamation-circle"></i>';
+            toast.className = `custom-toast ${type}`;
+            setTimeout(() => { toast.classList.add('show'); }, 100);
+            setTimeout(() => { toast.classList.remove('show'); }, 3500);
+        }
+
+        // --- INISIALISASI SAAT HALAMAN DIBUKA ---
+        updateUIBasedOnProgress();
+        
+        // Nyalakan Emblem "The Pioneer" otomatis
+        try {
+            fetch(SCRIPT_URL_COURSE2, {
+                method: 'POST', redirect: 'follow',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify({ action: 'update_badge', wa: userWa, b1: true })
+            });
+        } catch(e) {}
+        
+    </script>
+</body>
+</html>

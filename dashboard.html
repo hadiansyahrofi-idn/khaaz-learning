@@ -31,12 +31,23 @@
         
         <!-- SIDEBAR -->
         <aside class="glass-box" style="padding: 25px; margin: 0;">
-            
+                       
             <!-- Gamifikasi: Emblem Pencapaian -->
             <div class="sidebar-section">
                 <h3><i class="fas fa-medal" style="color: var(--logo-yellow);"></i> Emblem Pencapaian</h3>
                 <div class="badges-grid" id="emblemContainer">
-                    
+                    <div class="badge-item">
+                        <div id="c2-badge1" class="badge-icon" title="The Pioneer: Memulai Modul Gemini Canvas"><i class="fas fa-flag"></i></div>
+                        <span>The Pioneer</span>
+                    </div>
+                    <div class="badge-item">
+                        <div id="c2-badge2" class="badge-icon" title="The Creator: Mengirim Karya Game (Opsional)"><i class="fas fa-palette"></i></div>
+                        <span>The Creator</span>
+                    </div>
+                    <div class="badge-item">
+                        <div id="c2-badge3" class="badge-icon" title="The Certified: Telah Lulus & Verifikasi Ujian"><i class="fas fa-user-graduate"></i></div>
+                        <span>The Certified</span>
+                    </div>
                     <!-- The Explorer -->
                     <div class="badge-item">
                         <div id="badge1" class="badge-icon" title="The Explorer: Berhasil Mendaftar ke LMS">
@@ -91,7 +102,28 @@
         <!-- MAIN CONTENT (Daftar Pelatihan) -->
         <main>
             <div class="grid-2">
-                <!-- Modul 1 -->
+                <!-- Modul 1: Game Interaktif Gemini -->
+                <div class="glass-box course-card-compact">
+                    <!-- Gunakan gambar cover baru untuk course2 -->
+                    <img src="GAMBAR/course2.png" alt="Game Interaktif Gemini" style="object-fit: cover;">
+                    <div class="course-content">
+                        <div style="background: var(--logo-yellow); display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; margin-bottom: 12px;"><i class="fas fa-unlock"></i> Tersedia</div>
+                        
+                        <h3 style="font-size: 18px; margin-bottom: 10px;">Pembuatan Game Interaktif Pembelajaran</h3>
+                        <p style="font-size: 13px;">Mentransformasi kelas dengan Gemini Canvas menjadi petualangan belajar yang interaktif.</p>
+                        
+                        <div style="display: flex; gap: 10px; margin-top: 15px;">
+                            <!-- Tautan ke file course2.html -->
+                            <a href="course2.html" class="glass-btn" style="padding: 10px 20px; font-size: 14px; flex: 1;"><i class="fas fa-play-circle"></i> Mulai</a>
+                            <!-- Tombol Sertifikat Course 2 (Disembunyikan dengan class hidden awalnya) -->
+                            <button id="btnSertifikatC2" onclick="downloadSertifikatC2()" class="glass-btn hidden" style="padding: 10px 20px; font-size: 14px; flex: 1; background: #8b5cf6; color: white; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);">
+                                <i class="fas fa-certificate"></i> Unduh Sertifikat
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modul 2: Mastering AI -->
                 <div class="glass-box course-card-compact">
                     <img src="GAMBAR/course1.png" alt="Mastering AI">
                     <div class="course-content">
@@ -110,7 +142,7 @@
                     </div>
                 </div>
                 
-                <!-- Modul 2 Terkunci (Tahap Konsep) -->
+                <!-- Modul 3 Terkunci (Tahap Konsep) -->
                 <div class="glass-box course-card-compact" style="opacity: 0.7; filter: grayscale(40%);">
                     <div style="width: 100%; height: 150px; background: rgba(0,0,0,0.05); display: flex; align-items: center; justify-content: center; font-size: 35px; border-bottom: 2px solid rgba(0,0,0,0.05);"><i class="fas fa-lock"></i></div>
                     <div class="course-content text-center">
@@ -216,6 +248,7 @@
         // URL GAS ANDA YANG SUDAH TERPASANG
         const SCRIPT_URL_PROFIL = 'https://script.google.com/macros/s/AKfycbyMXZW_hSs8F84f2wDWBcUxKcgbecaToyT2OgJ7kd1faohHk56lbytoh764omSQPXItUQ/exec'; 
         const SCRIPT_URL_EMBLEM = 'https://script.google.com/macros/s/AKfycbxnaGJoz1fCVm0XbBRA5PruGqcWWkQV9sQ2QOpmYrsaSd6_lyc3nlc2zKfUA00bN-ht/exec';
+        const SCRIPT_URL_COURSE2 = 'https://script.google.com/macros/s/AKfycbwDq8CAwVlad7aSlT79N68vzfktvzE5i3i7_w8bf8BLB8nzbrCK3DhUHS0x0iLPukrn/exec';
         
         let profData = null; // Menyimpan data sementara untuk form edit
 
@@ -307,6 +340,23 @@
                 })
                 .catch(err => console.error("Gagal menarik emblem:", err));
             } catch (error) { console.error("Error Fungsi Emblem:", error); }
+
+            // 3. TARIK DATA EMBLEM COURSE 2
+            try {
+                fetch(`${SCRIPT_URL_COURSE2}?action=get_badges&wa=${encodeURIComponent(userWa)}`, { redirect: 'follow' })
+                .then(res => res.json())
+                .then(data => {
+                    if(data.status === 'success') {
+                        if(data.badges.b1) document.getElementById('c2-badge1').classList.add('unlocked');
+                        if(data.badges.b2) document.getElementById('c2-badge2').classList.add('unlocked');
+                        if(data.badges.b3) {
+                            document.getElementById('c2-badge3').classList.add('unlocked');
+                            // BUKA TOMBOL SERTIFIKAT JIKA LULUS
+                            document.getElementById('btnSertifikatC2').classList.remove('hidden'); 
+                        }
+                    }
+                });
+            } catch (error) { console.error("Error Emblem C2:", error); }
         }
 
         // FUNGSI SIMPAN PERUBAHAN KE DATABASE PROFIL

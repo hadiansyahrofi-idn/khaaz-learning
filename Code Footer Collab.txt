@@ -1,0 +1,52 @@
+<!-- FOOTER KOLABORASI -->
+    <footer class="footer-collab">
+        <p class="collab-title">Kolaborasi Bersama</p>
+        
+        <div class="logos">
+            <!-- Tautan ke KHAAZ Academy -->
+            <a href="https://khaaz-academy.vercel.app/" target="_blank" title="Kunjungi Web Utama KHAAZ Learning Academy">
+                <img src="GAMBAR/logo.png" alt="KHAAZ Learning Academy">
+            </a>
+            
+            <i class="fas fa-times" style="color: #cbd5e1; font-size: 12px;"></i>
+            
+            <!-- Tautan ke Instagram Kami Pengajar -->
+            <a href="https://www.instagram.com/kamipengajar/" target="_blank" title="Kunjungi Instagram Kami Pengajar">
+                <img src="GAMBAR/logokp.png" alt="Kami Pengajar">
+            </a>
+        </div>
+
+        <p class="credit">Developed by Rofi Hadiansyah &copy; 2026</p>
+    </footer>
+
+<!-- FOOTER MINIMALIS (Mandiri / Tanpa Kolaborasi) -->
+    <footer class="footer-collab">
+        <div class="logos">
+            <!-- Tautan ke KHAAZ Academy -->
+            <a href="https://khaaz-academy.vercel.app/" target="_blank" title="Kunjungi Web Utama KHAAZ Learning Academy">
+                <img src="GAMBAR/logo.png" alt="KHAAZ Learning Academy" style="height: 40px;">
+            </a>
+        </div>
+        
+        <p class="credit" style="margin-top: 5px;">Developed by Rofi Hadiansyah &copy; 2026</p>
+    </footer>
+
+<!-- Modul Kolaborasi Kami Pengajar -->
+                <!-- Modul 2: Mastering AI -->
+                <div class="glass-box course-card-compact">
+                    <img src="GAMBAR/course1.png" alt="Mastering AI">
+                    <div class="course-content">
+                        <div style="background: var(--logo-yellow); display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; margin-bottom: 12px;"><i class="fas fa-unlock"></i> Tersedia</div>
+                        <h3>Mastering AI for Educators</h3>
+                        <p>Rekayasa Aplikasi Absensi Visual dan Asesmen Online Berbasis Generative AI.</p>
+                        
+                        <div style="display: flex; gap: 10px; margin-top: 15px;">
+                            <a href="course.html" class="glass-btn" style="padding: 10px 20px; font-size: 14px; flex: 1;"><i class="fas fa-play-circle"></i> Mulai</a>
+                            
+                            <!-- Tombol Sertifikat (Disembunyikan dengan class hidden awalnya) -->
+                            <button id="btnSertifikat" onclick="downloadSertifikat()" class="glass-btn hidden" style="padding: 10px 20px; font-size: 14px; flex: 1; background: #22c55e; color: white; box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);">
+                                <i class="fas fa-certificate"></i> Unduh Sertifikat
+                            </button>
+                        </div>
+                    </div>
+                </div>
